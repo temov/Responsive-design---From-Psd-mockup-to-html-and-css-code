@@ -1,0 +1,3488 @@
+ /*Global styles -----------------------------------------------------------------------------------------------------------*/
+
+/*limited reset*/
+html, body, div, section, article, aside, header, hgroup, footer, nav, h1, h2, h3, h4, h5, h6, p, blockquote, address, time, span, em, strong, img, ol, ul, li, figure, canvas, video, th, td, tr {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align:baseline;
+	font: inherit;
+}
+
+/*html5 display rule*/
+address, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, nav, menu, nav, section, summary {
+	display: block;
+}
+/*micro-clearfix by Nicolas Gallagher http://nicolasgallagher.com/micro-clearfix-hack/*/
+/* For modern browsers */
+.cf:before, .cf:after {
+	content:"";
+	display:table;
+}
+
+.cf:after {
+	clear:both;
+}
+
+/* For IE 6/7 (trigger hasLayout) */
+.cf {
+	zoom:1;
+}
+a {
+	text-decoration: none;
+	color: #667F6A;
+	border-bottom: 1px dotted #667F6A;
+}
+
+a:hover {
+	color: #1b798F;
+}
+
+a:focus {
+    outline: thin dotted;
+}
+
+a img {
+	border: none;
+	outline: 0;
+}
+.preview a {
+	display: block;
+	height:100%;
+}
+
+.preview a:hover {
+	border: none;
+}
+a.phone{
+    border: none;
+    color: inherit;
+    cursor: default;
+   vertical-align: baseline;
+    
+}
+    
+a.phone:hover{
+    border: none;
+    color: inherit;
+}
+a.twitter {
+	background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAt1JREFUeNrsWDtv01AUvo6QCAPIHZCo6OCwwRRYeAyoAXVA7RDUCYkhRvwAMiNRZUcEdoQ7IDEVOlAxIEjFQMtSPLUT2AMoSAxYLBiWcD7nXGrFjxvboTUSn3QUx497Pp9z7nlYEzkwGAzq9AMxYi67JLamaXbWdbUMBKB4iaRJovv+T/Gl/zVy37Hpo6JaPYhDj2SVpEPE3ImQYRIWyaz37bvYeGsLx/kUSyRMqFabEecv1IU+dQSn1klMFSlNQeQW/XRB4tnKy4BEVoDU1cU5SapNhO5nIkMkdJAgafVevxO9V5uiKBqXz4nGpbM4XGZSnpIME+lRTNSfPH4escaNm4vCoLcN487tB2Nb6dr1BcQUgrsxSqgS80wXRB49XMnlljRgPayL9dnyIpEMx0gLFkkL0CLAulgfelhflAzvmi5iZNIWibMQ9EAf641YxsKumUSwjgPogT5OG7sBzOwcKyFOTp85RXJyNKntptwES/bJJS/W3qQGtEkbAofIQQf4/BJYJrkHOWJ0B4WRdk3lLuil9ZHZTemmJjLrfoD1NoOY4aKn/+2gTbMO9IMH3FRPKnoS77e2hftxSPbK/MUgbsJArMXhB607zlaHforDgIyhyinwK0d+8GDC2xXKPRR3RkWUCP/J/DNk3NHdsddg/S7I2Ejv+0UoVF7sCnfxXi1nSpflIi9YrwceMmZW0TyPg35MTkIhzQvWiylCyELZobdrgaUqgfn+r2h/S72trh8W9tZO8L96aOh2nEMjn2YVtmrnDxmUb6oN69TFz967aymzZRyGbUbUQmgh/ISygKkBY4wcYcJb2wRLdPFp2Nn+kKklnU7YGNDDVjEjeYbZtWFyVTA/JdPLWqWCcWIm1j08trTDg13cqGKRWVvo4lUWgFuM2nExRW8ot6js+hznc/C8Q9U+7Cbch3GH7l0mImahuakIVHNTuSfK0s3apfwKUbrvM3v55eq3AAMAe02W/xUZP0QAAAAASUVORK5CYII=) no-repeat left center;
+}
+
+a.flickr {
+	background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAxRJREFUeNrMmL9v01AQx58rS02XyhmQUokhpZOzYHeBdkAJqAOCAdQJiSFB7JC/oAoI1jIyINIBiakiA6gDgkRINLAQT2VCyQBKJYZYZSlTuK85V4794h/Nj+akp1ix9e7je9+7986KOIX1+32DfjCyktsdGpaiKFbSeZUEAHC8ReMWDe34+K847P4OPJdZOidSqXlc2jRqNCoE1hkLDENUaeTt3pFo7lui3f4pBfECLS+fF2vrhtDSi/irQaMUBaVEgDykn21AvNl970AkNUDd3txwocoE9CwRDEFogKBRrH/8KuofvohRrXDtsihcvYTLHYayI2EYpE6aMF6/ehuIBvRgruaEnrsgNG3RfWOB6Nn2kejS8nXav8T3gx/SKN25exNzQNwFP5AMpkogxZcvdgO60HMrTshZoKH29PFzAZHL9HTv/ibm2CGYkvfenEQjRUTED4IIxAVBlGQgMMyL+eGH/QVhOGu2oRGZUJEZcUBg3ZBMg2F++IE/9uuY6nmmijcaJtYlCq/fMGHzc2sgCtBFHIMf09QRcZSNwklkmC6P9I1rrW8HzoT+5cBbxy0B7C/vRsddpi1EJUkdse0/I6c7/MEvV/b/2URkvb13n7TmfmvgYaSwuar7y/xAKssMmRjX1tZNcf3GFZsyK63ypqfJooIMyg7RAO65NSbM8BIL9BIZ1hyyCQJ3l5f9auCAgI1hm95p7dGTBwJR1vWVocC0Es4zhwxGUTegmew4QbzhD4ucV/jsP6tGpZ+b6qia3iWT7Vn+Z8JAZNuFKiZoSH/sUxB7j8Sepr3MSYSFeWmFniiMv25FlY85MUMGmE5GUuqnaey/Axgr5akDZwHCxdRScYqngmPTBqdNIsXjHEshJ3C4mqnhiHAWxn5rXgFXUKDibv/jjAoXxsoJDLcQDZzkpmnsr+G2MN7ULoESp/hpGPxwVEqBOsN0ZbQTk14uzM9tS9nb2A1UYDRYlFkXqZ0IdAf+cy0fihKdfd1URruC/snf0CXum0aNSKK+aaY6ypnrtWfyK8TMfZ+Z5perfwIMAMprx6Ii41NCAAAAAElFTkSuQmCC) no-repeat left center;
+}
+
+a.facebook {
+	background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAsRJREFUeNrUWL9v00AUPkeV6ITcAalVGRwxpZPThR9TAmJjCOqExFAj/gD8F0QREmsZGRDJgMRUkYENQTLxYwFPZULNACoSA6eylCm87/RcnV3bZ5s6NZ/0FCv23ff53Xvv7tkSJTCfz136gTkJt2dkgWVZQdF5rQICQNwn65HZR0d/xI+DnyeeW127IJaXz+FSko3JBiRsdipiWMSQrCN/HYr37wKxv/8tUYguqNm8KK5ec4W9ch5/Tck8kyjLIOQB/exAxMvd10pEUUDU7a2boSifBD0uJIZE2BBBtj15+1FM3nwQ/4rujSuie/0yLkcsShrFsJAJxYT74vmrUt7I8tKdu7cQUwjublxQkpghCdl+9nQ3My4ABGp7c0M4zXWxQsuAWFGRS8sq5SG9yHc1x5e9r5F4und/C2NHJMZLFRPGyJCEmDzS2rikYoEzJxOPHj4RyD7dQx4JisdQI5Y1O4gRkxAEY14h8JIuBMD84AEf80bFIH0xME+wImXzCAEOUpYaPODjsqGwpHmlg/TNgzWOjcjk9KafP+2FBEps0nM6wEfL1QE/alDomT4mKZs5EKG9qQKWBvNlzYl7PKavL1MPlbUspPxdeizz9tQy8aZnm7yCFG5vto7TM3Kv3aIMWU8chxKRBea1oQMx46ZtevEMcigl0+5xuS8M8IKfYszFMjkmIVWD+Z2GqBGW8j6IbAlrEMq5vmSntZnWyjO1EzNbNVTKqsH8qgIHKN1nJUg7MwcNPsXLZkoNqRrMK6EjjJkxduKzAPOO9QAeoIIu2jvg48o9OBbDLcQUB6ZFgvmmYQujp7YHlTjFLwLgYa94J+oMq/PRTlS9XJif2xZfb+wiRY8PxyO0E1WlOubF/OCJN3RJFdhHX4P9J81DONfO6BwSmn7CM3mE2xSUE///6ihr12vX8itE7b7PLPLL1V8BBgDG73obtV/8SAAAAABJRU5ErkJggg==) no-repeat left center;
+}
+
+a.linked {
+	background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAsFJREFUeNrMmD1s01AQx5+jSJQFpUMlKnVwYGqnpAu0A0qoGPgYijpRdYhRJ4QEmZGIgsQc2BHp0MJUkaGIAUEihpZO8USmEg9FRWLAYmk6hfuHc3DjFztxHccnnRK9PL/75d7du3dWhA9pt9sp+oCqkp8NUl1RFH3YdZUhAGC4QLpMmmi1TsTPo1+OeRenp8TExDl8NUkrpEUCMwKBYYgyacb8/Ufs7eqi2TyUgtiBkskZsbCYEonJCxiqkWpeUIoHyGP6KAHi3fbHDsSwAqi7KzcsqDwBvRgKhiASgCDNVT/vi+qnr+Kskl26KrLXr+DrBkOZnjAMUqWYSL3d3PHlDTcv3Vu7g5hCcGd7gWQwZQLJvX613YkLLKCtr5ya8/TJS99AiKf7tB4BbRCMZv8tJomRHDziFqBnEayL9WGH7TlhOGtKiJEgt0YmWB92YI/tOjxTRtYEEayDCOzAHh8b/2GYLoP0DVPYXsbyjuWZAihHvT2y7WLvFOwwyzhZxyFsFyVGxLnoJcL2it07sA+OOKpvv6I3yJlxnoriMT+PAjlNY+qlme6c1vGJaDQOrO2Qpjrs07MdGNXvmXLr9jWhJv8Zbnw7ELNzl6XzbtK8vd26+PD+S18gWkeNBeXufiCWLCymRXp+znVOLOgYwL80KA4MSQym52ddn40HCfFma+dUbCCGHjxcta4P3S0duWcQhL1BirF6vTHwGoAxkBXjFLZvAEaHO8cFZLsz6zG+xZtJj/0clbBdExxWzFRweR6HsN2KPZuKFPE5UA5SFp49f+QYQ6b0jiO9m80frl7hTCt2s4lbiBpu8WEK26tZLYw9tTVQ4hYfhsAOe0VzHHqgo8qZp3aiZHw/7G4XiqDhs6If0UGIs6f3eWwPty15e2Pn2R2MIpX7dQfR7psi1VFGrteO5FuIyL2fCfPN1V8BBgC1+pXDVk2EjQAAAABJRU5ErkJggg==) no-repeat left center;
+}
+
+a.google {
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA55JREFUeNrMWL9PE1EcfyUk4CA5Ek0kYSiweEytC8JgehIHo0NNJxOHnuEPEKIzYTfiYJyMZRCYiB1qHIyWmEh1oXVpXaAdNCXRhEaHFhf8fq7vne9e73q9Qkm/yUuv7+6+38/7/vh837sQ60KOj48j9IMRdrldoVEIhUKFoHpDAQDA8DKNOA2t0ThiB9WfLc9dGrvIhoeHcFmjkaaxQsAqpwKGg0jRiNUOf7PcToGVy99dgciAJibG2exchGmjI5japmH6gQr5AHlAP6sA8XrrnQUiqADUncQNAWqRAD0NBIZAaABBI5n98IVl339mJxVj/iozrs/gco2DqvmC4UCylBORzVeZrrzRzkt3791GTiG5DRWQG5gUAUm+fLHlyAu4GTkAhcgJIXimmUO/WPSKbs1Vae7tm4+e+XR/IQFAawTGlO8NuuRIEh4RQFAZN29dI0PTnsplcH4CvdBvLiSSZO+rnEMDStWsIkdEaAAEq/AC0q1AP+zAHrfb4pkUqkZOVlSBumo8UyrtsUbjbzN82nkrdLxaOhbYiUZ1vAfaMGwwHF0M5Su7X5+ecijI7xaZ/IycmOT2wB6CLnovBvvgIBGmZaxYrhyRjDbH0z03ICcNF+xyZrdzJg5mlWVMCU9+t8R6Idxu3AoTb3qaH5/wFQQWFECYwgjPgi7cvAP7wAHPRLyanizD54Z64hnYhX3gAJiwG5B6/cjx/7I+yXol3H54wOuBSvmH4z+45rT5RpVBrxsoY2N+RuxNJN65YCWz8CYoIDw57gwpvYNyF9fqnO19JT08wSCOyHTeaW2ZnYtao50AoMo7bnNqUg/4sWRuJ8/OSuCZSrtGh+77rbhvNctOG+KB1LXFewcunbzerCKhtwIwBcRTvODFlM+fbVj9Z0zq0o36/5jLIUCIBW/xsnXMeeyZC4PYxRPh1Ci5ND+uAfFZjbK455hXe1jQDRdUA4fImTQ2Tt1KJOrsY1WfRTkLwrKblhN4BSFQS08uTW9l0RbPqBzVzit867Hi2HZSqLIUgtiTxykHkKVHJhMdvXb4x84RcItOrOy235F1tJOlhybAbFOIDJVnTLpRxi5ebLCwYpHcnVbSxnqm49MC94rZwjP8gLUIkhPhCtKPUC2b6xnfhivCw8l0UT7YtT0dwICuT5GHJq1tgBenlEr7LPcpb5exHzt7nQ4CnZvg1lFtxLWv9OTc1Fcnyr47a/flV4i++z5zll+u/gkwACswGWZAoYg4AAAAAElFTkSuQmCC) no-repeat left center;
+}
+
+a.youtube {
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA1lJREFUeNrMWL+PEkEUHgjJYWOwMNHEArTiKrA5TxMjGgujxZmrTCzA2Ct/wQUTayyMlZErjFddpNBYGIWYCNgIFVcpW9wFE4sjNmKF74M3yzA7+4sjF14yYY/bnfft9773zQwRMUeMRqMMfWAkDf+2aHQikUgn7LyREACQeIvGBo3EcPhP/Or/dtx35uxpEY+v4HJAo0qjRMCshYBhEBUa1waHf0Sz0RG93r4RiAoolTon1i9nROLUSXxVp1HwAxXxAfKYPsoA8Xb34xhE2ACou5s3JagiAXoWCgyBSAAEjXzt8zdR+9QSR43cjUsid30Nl9sMauALhoHUSBOZndfv5mLDi6V79+9AUxB3TgcUNTxTBpBXL3cXCgSB+TAv5mfm3ZmRGqkcAciTp4/sa7d5wFDh4aZDQ1Gta8rQyKIZMTGEPMjHeR1lqqBrFiHWIIE8yMe2MS0To+vptD6YUMlvc+AKNHtxlUZ6fJ2kEsiAF8EcZbS/79HomsqVggfF+PstoNTLc0jfIZFM0vzanpncbltqWfYRh/nNlufAUS7kpWfh7AVZpg04q4PKSV3tWL+SNYrRBCRocF4sMSLGi17CJFqg3uv+EOnVC5NyZNOOUmW4PAj1Xq9u0tlBfuAAMxm3RQ/RUhgDA7JsCCyI6t+tRuiFWtXVGEzSa9EDckt5u6zChMqCSXNhAAFHNFgbTrUDIUthYlV209c8EQ1qUuwJNggAkqBAM/RyLGD0N4dOeAVm/+gaWz5slwUGg4QqO6peVFtQ9Xfr9lViMTtuf2whVLGbAqZn6ebkxQ42SjMbXq2EfQIj50O3AZAqctWBNXO0wEwHDwUBBF3o5dDN8sP7L6424ebSvGfuxLCLJ8MZEJUJrxaXQsXbSeDSFPV7Xjx/Y++D4ydWxPDvxMf6hvlTk7VsABxybapSh+SbjbbvTk1lsOlhckju93KKPVRVAZdAYUpZcc372LUZBkz1D7sN5dKVbDB8hKjr4tRrq24PTPoJG5yvLo8wamsXgBIt6EFnoBIFPS0wKwWHzzC6IsxML5e+QFo+h7gg5WHTLKoHO9NRpUL057GLlwnxcPL8FKD1c3/uRRHlxg6S2nmbgBSW9ty03CfKpTtrL+WvEEv3+8xx/nL1X4ABAH5eDkhUFH1oAAAAAElFTkSuQmCC) no-repeat left center;
+}
+     
+
+    /*mobile styles*/
+
+        @media only screen and (max-width:480px){
+            
+            /*disable text sizing on orientation change*/
+            html, body, div, section, article, aside, header, hgroup, footer, nav, h1, h2, h3, h4, h5, h6, p, blockquote, address, time, span, em, strong, img, ol, ul, li, figure, canvas, video, th, td, tr {
+                -webkit-text-size-adjust:none;
+            }
+            
+            body{
+                    width: 90%;
+                    margin: 0 auto;
+                    min-width: 320px;
+                    max-width: 480px;
+            }
+            
+             header{
+            width: auto;
+            background:burlywood;
+            height: 200px;
+            color: sandybrown;
+            padding-top: 1px;
+            overflow: hidden;
+                 position: relative;
+            
+            }
+            
+              #pageHeader hgroup{
+            
+                top: 120px;
+                position: absolute;
+                width: auto;
+              text-align: center;
+                height: 20%;
+               
+        }
+            #pageHeader a{
+                
+                border-bottom: none;
+                color: firebrick;
+            }
+           
+           #pageHeader hgroup h1{
+               
+               font-size: 2.5em;
+               color: brown;
+               
+                    }
+              #pageHeader hgroup h2{
+               
+               font-size: 1.5em;
+               color: bisque;
+               
+                    }
+            
+            button{
+                
+                display: none;
+            }
+                
+            #mainNav{
+             
+            background: beige;
+            top: 0;
+             float: none;
+             width:auto;
+            height: auto;
+             padding-left:0px;
+            position: relative;
+            margin: 0;
+                overflow: hidden;
+            
+           }
+            
+            
+            #mainNav h2{
+                
+                display: none;
+            }
+                
+            #mainNav ul {
+                
+               
+                float: left;
+                width: 100%;
+                height: auto;
+                padding-left: 0px;
+                margin: 0 auto;
+                        }
+            
+             #mainNav li{
+                 margin-right: 0px;
+                 padding: 1px;
+                 float: none;
+                 display: block;
+  
+        }
+             
+            .topMenu {
+                max-height: 0;
+                visibility: hidden;
+            }
+            .topMenu.expand {
+                max-height: 900em;
+                visibility: visible;
+            }
+            #mainNav a, #mainNav h3 {
+                font-size: 1em;
+                text-align: left;
+                color: white;	
+                display: block;
+                margin-bottom: 0;
+                background-color:#AD6F39;
+                padding-left: 0.5em;
+                line-height: 2em;
+                text-transform: uppercase;
+                cursor: pointer;
+            }
+            #mainNav a:hover {
+                color: white;
+            }
+            #mainNav a.current {
+                color: rgb(237, 228, 214);
+            }
+            #mainNav span.indicator {
+                position: absolute;
+                right: 1em;
+            }
+            /*dropdown menu styles*/
+                #mainNav ul.submenu {
+                    float: none;
+                    width: auto;
+                    height: auto;
+                    max-height: 0;
+                    -moz-transition:max-height 0.5s ease;
+                    -webkit-transition:max-height 0.5s ease;
+                    -o-transition:max-height 0.5s ease;
+                    transition:max-height 0.5s ease;
+                    overflow: hidden;
+                }
+                #mainNav ul.submenu.expand {
+                    max-height: 20em;
+                }
+
+                #mainNav ul.submenu li a {
+                    padding: .2em 1em;
+                    white-space: nowrap;
+                    color: white;
+                    text-align: left;
+                    font-size: 1em;
+                    padding-left: 3em;
+                    background: rgb(100, 98, 102);
+                }
+            
+            #mainNav li:not(:first-child):before{
+            
+              content: none;
+              padding-right: 0px;
+        }
+            #mainNav li:last-child {
+            margin-right: 0;
+        }
+            #mainNav .menuToggle {
+                display: block;
+                background: rgb(76, 67, 65);
+                width: 8em;
+                margin-bottom: .2em;
+                position: relative;
+            }
+            .menuToggle a {
+                text-align: center;
+                padding: 0;
+            }
+            .social {
+                
+                margin: 10px auto;
+                
+            }
+
+            .social a{
+                
+                width: 35px;
+                height: 35px;
+                text-decoration: none;
+                border: none;
+                
+                
+            }
+           
+            
+            .social li{
+                
+              list-style: none;
+                
+            }
+
+            .logo
+                {
+                width: 100%;
+                    height: 30px;
+                    position: absolute;
+                    text-align: center;
+                    top: 10px;
+                    left: 0px;
+                    right: 0px;
+                    z-index: 2;
+                    letter-spacing: 2px;
+                    
+                  
+                }
+
+            .logo a{
+                color:saddlebrown;
+                font-size: 1.7em;
+                font-family: 'Nanum Myeongjo', serif;
+                font-style: oblique;
+                border-bottom: none;
+            }
+            
+             #pageHeader hgroup{
+               
+               
+            top: 80px;
+                 width: 100%;
+                 text-align: center;
+            
+              
+                
+               
+              
+                    }
+           
+           hgroup h1{
+               
+               font-size: 1.5em;
+               color: beige;
+               width:auto;
+               height: auto;
+               
+               
+                    }
+        
+    
+       
+        
+         .social-menu {
+             top: 160px;
+            display: block;
+            float:left; 
+            width: 30%;
+             height: auto;
+             left: 20px;
+             z-index: 2;
+             position: absolute;
+             
+}
+
+             .social-menu li{
+            list-style-type: none;
+            float: left;
+               
+            
+    
+        }
+ 
+        .social-menu i {
+            color:beige;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            font-size: 15px;
+            margin: 10px;
+            transition: all 0.2s ease-in-out;
+            display: flex;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            
+        }
+            .social-menu i:hover {
+            opacity: .5;
+            border-radius: 0;
+                color: firebrick;
+        }
+
+        .social-menu i:before {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+        }
+
+        .social-menu a {
+            text-decoration:none;
+        }
+        
+        
+
+        .fa-facebook {
+            background:#3b5998
+        } 
+
+        .fa-linkedin {
+            background:#007bb6
+        }
+
+        .fa-twitter {
+            background:#00aced
+        }
+            
+            
+/*contact styles*/
+#contact h2 {
+	margin-bottom: 1em;
+}
+
+a.phone {
+	padding: .5em .5em .5em 30px;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAWBJREFUeNpiZMADfF2cEoCUAgN54MHmPfsW4JJkxGPpfCCVwEAZWAC0PJFoi4GWGgCp8wzUAYZAyy+gC7LgUCwAIpzd3BnEJCTIsu3VixcMe3fthJtFrMUMMIt19PXJsvjKxYswi7ECJoYBAqMWj1o8avGoxaMWj1o8+CzGWx/Pnj6VgYeHhyyDv3z5QromYNPHAYj/X75w4T8IVBUXotDLFi2Ey4HY2ORAGGQGyCxsdjBjE1RXUlSANfTu37vLcBnYmvj69SucvnLxAsOrly/BcjA2htzdu2AMBAtv3bv/gKQ4BjVdQG2ngtIyhhNHj8DpyNh4BkVlZbAciI1NDl+zZ0ATF67mLShe9sNamXt37mRwdneH06DgFBOXAMuB2Dr6BhhysBADAkdg8/YAWa1MkGGRsXFwejlQTldPHywHYmOTQ7KYJB/TvEGPNY6hChdQwdIF2CzF23eidacNIMAAxi/joc6jdacAAAAASUVORK5CYII=)no-repeat left center;
+	border: 1px solid rgb(123, 121, 143);
+	margin: 2.4em auto;
+	width: 200px;
+	display:flex;
+    align-items: center;
+    
+}
+.connect {
+	margin-top: 2em;
+}
+
+#contact li a {
+	padding-left: 30px;
+	line-height: 35px;
+	font-size: 1em;
+	display:block;
+	background-size: 20%;
+}
+a.phone:hover {
+	border: 1px solid rgb(123, 121, 143);
+}
+            
+            
+
+/*form styles*/
+fieldset {
+	width: 90%;
+    background-color: beige;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="email"], input[type="url"], textarea {
+	width: 95%;
+}
+
+fieldset p {
+	float: none;
+	width: auto;
+}
+
+            
+              article.cakes{
+               
+                   width: auto;
+                   padding: 2% 2%;
+                   background: beige;
+                  
+           }
+           
+           .art_of_cakes{
+               
+               width: 90%;
+               left: 0;
+               right: 0;
+               top: 10px;
+               bottom: 10px;
+               height: auto;
+                margin: 0 auto;
+                background-color: transparent;
+               padding-top: 15px;
+           }
+             .art_of_cakes .art_of_cakes_content_top_left p{
+            
+           display: none;
+            }
+            
+              .art_of_cakes_content_top_left h2 {
+            
+                text-transform: uppercase;
+                color: rosybrown;
+                padding-bottom: 5px;
+                font-size: 1.4em;
+                text-align: center;
+
+            }
+              .art_of_cakes_content_top_left h3 {
+            
+                text-transform: uppercase;
+                color: burlywood;
+                font-size: 12px;
+                padding-bottom: 5px;
+                text-align: center;
+
+            }
+            .art_of_cakes .art_of_cakes_content_bottom_left{
+            
+            width: auto;
+            height:auto;
+            margin: 10px 0px;
+            font-size: 1.4em;
+            text-align: center;
+            position: relative;
+            }
+
+                .art_of_cakes .art_of_cakes_content_bottom_left h2{
+            
+                        font-weight:bold;
+                        padding: 15px 5px;
+                        top: 5px;
+                        }
+           
+
+
+                .benito_gaspare{
+                   
+                    width:auto;
+                    left: 0;
+                    right: 0;
+                    height: 70px;
+                    padding: 5px;
+                    margin: 0;
+                    display: flex;
+                    justify-content: center;
+                    
+                    
+                }
+                    div.benito, div.gaspare{
+                        width: 25%;
+                        height: auto;
+                        padding: 10px;
+                        border-bottom: 1px solid black;
+                        border-top: 1px solid black;
+                        font-family: 'Nanum Myeongjo', serif;
+                        margin: 5px;
+                        font-size: 1.2em;
+                        
+                    }
+                            
+                .text_botom_left span.rquote{
+                    display: inline-block;
+                    transform: rotateY(180deg);
+                }
+
+                
+                                
+                .text_botom_left{
+                    width: 80%;
+                    height: auto;
+                    margin:0 auto;
+                    font-size: 1.2rem;
+                    color: burlywood;
+                    
+                }
+            
+            div.face_img {
+                width: auto;
+                height: auto;
+                
+                
+            }
+    
+            .benito_gaspare .face_img img{
+
+                border: 2px solid white;
+                border-radius:50%;
+                margin: 10px;
+                object-fit: cover;
+                width: 40px;
+                height: 40px;
+                box-shadow: 2px black;
+                filter: saturate(100%);
+                top: 5px;
+            }
+           
+           .img_gallery_cakes{
+
+                width: 100%;
+                height: 80px;
+                float: none;
+                margin-top: 35px;
+                position: relative;
+                bottom: 30px;
+
+            }
+      
+      
+      .cake_indgredients {
+          
+           width: 100%;
+          height: 100%;
+          
+      }
+           .cake_indgredients li{
+          position: relative;
+          
+      }
+            .cake_indgredients a{
+                
+                border-bottom: none;
+            }
+      
+       .cake_indgredients a:hover:after{
+          
+           content: attr(title);
+           display: block;
+           width: 100%;
+           position: absolute;
+           left: 7px;
+           top: 0;
+           line-height: 1em;
+           color: white;
+           text-align: center;
+           background: rgba(25,25,25,.8);
+            border: none;
+           z-index: 999;
+      }
+      
+                     .cake_indgredients ul li{
+                         display: inline-block;
+                         border: none;
+                         padding: 1px;
+                         width: 24%;
+                         float:left;
+                         
+
+                     }
+      .cake_indgredients ul li img{
+          
+          width: 100%;
+          height: 50%;
+      }
+        
+           
+           .taste{
+                    display: none;
+
+                }
+
+         .cake_indgredients img{
+          display: inline;
+          padding: 2px;
+          width: 20%;
+          height: 50px; 
+             margin-left: 5px;
+
+         }
+            
+             article.tasty_pancakes{
+
+                width: auto;
+                height: 600px;
+                margin: 0 auto;
+                position: relative;
+                background: url(../images/Ebene-11.png) no-repeat 0 0;
+                background-size: cover;
+                padding-left: 50px;
+
+            }
+                    .tasty_pancakes_content{
+
+                           
+                                    margin: 0 auto;
+                                    width: 90%;
+                                    padding: 5px 0px;
+                                
+                                    
+
+                    }
+
+                            .tasty_pancakes_content .content_right{
+
+                                    width: 95%;
+                                    height:80%;
+                                    top: 5px;
+                                    text-align: top;
+                                    padding: 0px 10px;
+                            }
+      
+      
+                                  .content_right .inline{
+                                      float: none;
+                                      display: block;
+                                      width: 80%;
+                                      margin: 0 auto 1em;
+                                      min-width: 100px;
+                                  }
+            
+                                      
+                                    .content_right .video{
+                                        position: relative;
+                                        padding-bottom: 58%;
+                                        padding-top: 5px;
+                                        height: 0;
+                                        margin-bottom: 1em;
+                                  }
+                                       .video iframe{
+                                          top: 0;
+                                          left: 0;
+                                        width: 100%;
+                                        height: 100%;
+                                       position: absolute;
+                                  }
+           
+                                                       .content_right p{
+
+                                                           color: saddlebrown;
+                                                           font-size: 0.7em;
+                                                           padding: 5px;
+                                                           font-family: Arial Georgia sans-serif;
+                                                           letter-spacing: 1px;
+                                                           box-shadow:  5px 10px 100px gainsboro inset;
+                                                           text-align: justify;
+                                                       }
+                                                        
+                                                            .content_right h2{
+
+                                                             color: saddlebrown;
+                                                             padding-left: 0px;
+                                                                font-size: 1.6em;
+
+                                                           }
+           
+                                                        .content_right h3{
+                                                            
+                                                           color: sandybrown;
+                                                           margin-top: 5px;
+                                                           padding-bottom: 15px;
+                                                            font-size: 1.2em;
+                                                       }
+           
+                                                    .gallery_ingredients_bottom {
+
+                                                        height: auto;
+                                                        width: auto;
+                                                        text-align: center;
+                                                        vertical-align: middle;
+                                                    }
+                                                        .content_right ul{
+                                                                width: 320px;
+                                                                height: 100px;
+                                                                margin: 0 auto;
+                                                                position: relative;
+
+
+                                                        }
+
+                                    .content_right ul li{
+                                       display: inline-block;
+                                        top: 20px;
+                                        padding: 5px;
+                                        position: relative;
+                                        
+                                    }
+
+                        
+           
+                                            .ready{
+
+                                           display: none;
+                                            
+                                        }
+                                            .ready h3{
+                                                        font-size: 0.6em;
+                                                        font-family:Arial Georgia sans-serif;
+                                                        color: saddlebrown;
+                                                        letter-spacing: 1px;
+
+                                            }
+           
+                                                .ready .forthy_min{
+                                                        font-size: 1.6em;
+                                                        font-family:Arial Georgia sans-serif;
+                                                        color: grey;
+                                                        padding: 5px 0;
+                                                        font-weight: 700;
+                                                        letter-spacing:5px;
+                                                
+
+                                            }
+                                                        .ready p{
+                                                        font-size: 0.8em;
+                                                        font-family:Arial Georgia sans-serif;
+                                                        color: saddlebrown;
+                                                letter-spacing: 2px;
+
+                                            }
+            
+                                        article.breakfast{
+                                        
+                                        width: auto;
+                                        height: 450px;
+                                        background: url(../Images/breakfast-small.png)  no-repeat -50px 0 ;
+                                        text-align: center;
+                                        position: relative;
+                                            background-size: cover;
+                                    
+                                         }
+            
+                                                article .time_table{
+                                                   
+                                                width:90%;
+                                                height: 350px;
+                                                position: absolute;
+                                                top: 50px;
+                                                margin: 20px 10px;
+                                                text-align: center;
+                                                }
+                                                   
+                                                
+                                                    article .menu{
+                                                        display: none;
+                                                   }
+                                                        
+           
+           
+                                                        article .plant{
+                                                            
+                                                           display: none;
+                                                            
+               
+                                                        }
+                                                                div.time_table h2{
+
+                                                                color: white;
+                                                                font-family: 'Nanum Myeongjo', serif;
+                                                                font-size: 2.5em;
+                                                                padding-bottom: 5px;
+                                                                 padding: 0 0 5px 15px;
+                                                                letter-spacing: 2px;
+                                                                font-weight: 600;
+
+                                                            } 
+                                                                div.time_table h3{
+
+                                                                color: white;
+                                                                font-family: Arial Georgia sans-serif;
+                                                                font-size: 20px;
+                                                                padding-bottom: 5px;
+                                                                 padding: 0 0 5px 15px;
+
+                                                            } 
+
+                                                                div.time_table p{
+
+                                                                color: greenyellow;
+                                                                font-family: 'Nanum Myeongjo', serif;
+                                                                font-size: 15px;
+                                                                text-transform: uppercase;
+                                                                padding-bottom: 10px;
+                                                                 
+
+                                                            }
+                                                                    div.time_table h4{
+
+                                                                        color: lightgoldenrodyellow;
+                                                                        font-size: 14px;
+                                                                        font-family: Arial Georgia sans-serif;
+                                                                    }
+                                                                                    
+                                                                                            
+                                                                                    article.jibarito_sandwich{
+                                                                                        
+                                                                                        width: auto;
+                                                                                        height: 400px;
+                                                                                        background: linear-gradient(rgba(245,231,190,.8), rgba(245,231,190,.8)), url(../Images/Jubarito_back.png) no-repeat 0 0;
+                                                                                        background-size: contain;
+                                                                                        position: relative;
+                                                                                        text-align: center;
+                                                                                        
+                                                                        
+                                                                                        }
+
+                                                                                            article .jibarito_title{
+
+                                                                                                width: 90%;
+                                                                                                height: 60px;
+                                                                                                left: 0;
+                                                                                                right: 0;
+                                                                                                text-align: center;
+                                                                                                padding: 10px;
+                                                                                               
+                                                                                                
+                                                                            
+                                                                                            }
+            
+                                                                                                    .jibarito_title h2{
+                                                                                                        
+                                                                                                        font-size: 1.5em;
+                                                                                                        position: absolute;
+                                                                                                        width: 95%;
+                                                                                                        line-height: 25px;
+                                                                                                        letter-spacing: 1px;
+                                                                                                        font-weight: 600;
+                                                                                                        padding-top: 10px;
+                                                                                                       
+                                                                                                        
+                                                                                                    }
+                                                                                                        .jibarito_title h3{
+                                                                                                       
+                                                                                                        font-size: 0.7em;
+                                                                                                        position: absolute;
+                                                                                                        width: 95%;
+                                                                                                        letter-spacing: 1px;
+                                                                                                        line-height: 15px;
+                                                                                                        color: brown;
+                                                                                                        text-transform: uppercase;
+                                                                                                            padding-top: 25px;
+                                                                                                        
+                                                                                                    }
+                                                                                                .jibarito_left{
+
+                                                                                                display: none;
+                                                                                             
+                                                                                               
+                                                                                            }
+                                                                                            .jibarito_right{
+
+                                                                                                width: 100%;
+                                                                                                height: 60%;
+                                                                                                padding: 5px;
+                                                                                                top: 90px;
+                                                                                                left:0;
+                                                                                                right: 0;
+                                                                                                
+                                                                                            }
+            
+                                                                                                .jibarito_s{
+                                                                                             width: auto;
+                                                                                             height: auto;
+                                                                                             margin: 10px 20px;
+                                                                                            
+                                                                                           
+                                                              
+                                                                                                }
+                                                                                                .jibarito_s img{
+                                                                                            
+                                                                                            border: 3px solid white;
+                                                                                           height: 70%;
+                                                                                            max-width: 100%;
+                                                                                            min-width: 200px;
+                                                                                            box-shadow: 3px 3px 6px #888888;
+                                                                                            left: 0;
+                                                                                            right:0;
+                                                                                                margin: 0 auto;
+                                                                                        
+                                                                                                    
+                                                                                                    
+                                                                                        }
+           
+                                                                                                    div.prep_info{
+
+                                                                                                    display: none;
+                                                                                                    
+                                                                                                
+                                                                                                }
+            
+                                                                                                                    
+            
+                                                                                                                    #recipe a{
+                                                                                                                    
+                                                                                                                    height: 2em;
+                                                                                                                    width: 4em;
+                                                                                                                    padding: 10px;
+                                                                                                                    letter-spacing: 1px;
+                                                                                                                    border: 1px dashed burlywood;
+                                                                                                                    border-radius: .5em;
+                                                                                                                    color: beige;
+                                                                                                                    margin: 0 auto;
+                                                                                                                    background: rgb(95,150,120);
+                                                                                                                }
+                                                                                                                
+                                                                                                                #pageFooter{
+
+                                                                                                                width: auto;
+                                                                                                                height: 60px;
+                                                                                                                background-color: burlywood;
+                                                                                                                bottom: 0px;
+                                                                                                                position: relative;
+                                                                                                                color: saddlebrown;
+                                                                                                                padding-top:10px;
+                                                                                                            
+                                                                                                                
+                                                                                                            }
+             
+           
+            .foot_main{
+    
+                    width: 100%;
+                    height: 90%;
+                    position: absolute;
+                padding: 5px 0px;
+                
+                  
+                    }
+            
+           .foot_logo{
+    
+                width: auto;
+                height: auto;
+                font-size: 2em;
+                position: absolute;
+                display: block;
+                left: 0;
+                right: 0;
+                top: 28%;
+               text-align: center;
+                
+            }
+
+.foot_logo a {
+	text-decoration: none;
+	color: bisque;
+    border-bottom: none;
+    font-family: 'Nanum Myeongjo', serif;
+    letter-spacing: 1px;
+    
+	
+}
+
+.foot_logo a:hover {
+	color:firebrick;
+}
+
+.foot_left{
+     width: auto;
+    height: auto;
+    list-style-type: none;
+    display: block;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-color: burlywood;
+    left: 10px;
+    position: absolute;
+    
+   
+    
+}
+        .foot_left li{
+        padding:  10px;
+        height: auto;
+        float: none;
+        font-size: 0.6em;
+        letter-spacing: 2px;
+        font-weight: 600;
+    
+            }
+            .foot_left li a{
+            
+               text-decoration-line: none;
+                border-bottom: none;
+                cursor: pointer;
+                color: saddlebrown;
+    
+            }
+           
+           .foot_left li a:hover{
+            color:firebrick;
+    
+            }
+           
+            .foot_right{
+                 width: auto;
+                height: auto;
+                list-style-type: none;
+                display: block;
+                right: 10px;
+                box-shadow: 0px 10px 15px burlywood inset;
+                border-top: 1px solid black;
+                border-bottom: 1px solid black;
+                border-color: burlywood;
+                position: absolute;
+    
+}
+            .foot_right li{
+                 padding: 10px ;
+                height: auto;
+                float: none;
+                font-size: 0.6em;
+                letter-spacing: 2px;
+                font-weight: 600;
+               
+    
+   
+}
+            .foot_right li a{
+            
+               text-decoration-line: none;
+                border-bottom: none;
+                cursor: pointer;
+                color: saddlebrown;
+    
+            }
+           
+           .foot_right li a:hover{
+            color:firebrick;
+    
+            }
+           
+/*footer styles*/
+            #pageFooter {
+                clear:both;
+                overflow:hidden;
+                padding-bottom: 2em;
+            }
+
+            #pageFooter form {
+                width: 90%;
+                margin: 0 auto 1em;
+            }
+
+            .notice {
+                width: 300px;
+            }
+
+            #pageFooter p {
+                margin-left: 5%;
+            }
+
+           
+           
+            
+      }      
+        
+          /*tablet styles*/
+        
+       @media only screen and (min-width:481px) and (max-width:768px) {
+           
+           
+                         body {
+                    width: auto;
+                    margin: 0 auto;
+                    min-width: 500px;
+                    max-width: 768px;
+                            }
+            header{
+            
+           
+            position: relative;
+            background: url(../images/Banner-tablet.png) no-repeat 0 0;
+            background-size: cover;
+            height: 300px;
+            color: sandybrown;
+            padding-top: 1px;
+            overflow: hidden;
+            
+            }
+           
+           
+           
+           .logo
+                {
+                width: 100%;
+                    height: 20px;
+                    position: absolute;
+                    top: 2px;
+                    left: 0px;
+                    z-index: 2;
+                    letter-spacing: 2px;
+                    text-align: center;
+                    
+                  
+                }
+           
+           .logo a{
+                color:saddlebrown;
+                 font-size: 5vw;
+               font-family: 'Nanum Myeongjo', serif;
+               text-decoration: none;
+               border-bottom: none;
+               
+               
+            }
+           .logo a:hover{
+                color:grey;
+                
+               
+            }
+           
+           
+           #pageHeader hgroup{
+            
+                top: 120px;
+                position: relative;
+                width: auto;
+              text-align: center;
+                height: 20%;
+               
+        }
+           
+           hgroup h1{
+               
+               font-size: 2.5em;
+               color: beige;
+               width:auto;
+               height: auto;
+               top: 10px;
+               margin: 10px;
+               position: relative;
+               
+               
+                    }
+           
+             hgroup h2{
+               
+               display: none;
+           }
+               
+           
+           button{
+               
+               display: none;
+           }
+
+          #mainNav{
+            
+            width: 100%;
+            font-size: 80%;
+            top: 30px;
+            height: auto;
+            background: transparent;
+            position: absolute;
+            padding: 0px;
+            z-index: 1;
+              
+
+        }
+            #mainNav a {
+                text-decoration: none;
+                border-bottom: none;
+                font-weight: 600;
+                color: floralwhite;
+                
+            }
+           
+           
+               .topMenu {
+                   width: 450px;
+                   line-height: 20px;
+                   margin: 0 auto;
+                   padding: 10px 0px;
+                   
+                    
+                }
+           
+            .topMenu h3{
+               
+               color: floralwhite;
+                margin: 0px;
+                display: block;
+                padding: 0px;
+                width:auto;
+                font-weight: 600;
+                
+           }
+           
+           
+         #mainNav h2 {
+            display: none;
+        }
+      
+      
+           
+        
+       .topMenu li{
+            float: left;
+            color: beige;
+           padding: 5px;
+            list-style: none;
+            font-family: 'Nanum Myeongjo', serif;
+            width: auto;
+            font-size: 12px;
+            
+          
+            
+            
+        }
+            #mainNav li a:hover{
+
+                color: firebrick;
+                cursor: pointer;
+        }
+      
+       #mainNav li h3:hover{
+
+                color: firebrick;
+                cursor: pointer;
+        }
+
+        
+        #mainNav li a{
+            color: beige;
+            text-decoration-line: none;
+            padding-bottom: 5px;
+            border-bottom: none;
+            cursor: pointer;
+              
+        }
+           #mainNav li:last-child {
+	           margin-right: 0;
+            }
+           
+        
+        
+
+        
+               
+    
+/*dropdown menu styles*/
+#mainNav ul.submenu {
+	float: none;
+	width: auto;
+	height: auto;
+    padding-top: 1em;
+	max-height: 0;
+	-moz-transition:max-height 0.5s ease;
+	-webkit-transition:max-height 0.5s ease;
+	-o-transition:max-height 0.5s ease;
+	transition:max-height 0.5s ease;
+	overflow: hidden;
+	z-index: 1000;
+    position: absolute;
+}
+
+#mainNav ul.submenu li {
+	float: none;
+	margin: 0px;
+	background: rgba(76, 67, 65, .9);
+    border-bottom: 1px solid beige;
+    width: 130px;
+}
+#mainNav li.hover:hover ul, #mainNav ul.submenu.expand {
+	max-height: 20em;
+}
+#mainNav ul.submenu li a {
+	border-bottom: none;
+	padding: .5em .5em;
+	color: beige;
+	font-size: 1.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+#mainNav ul.submenu li:last-child a {
+	border-bottom: none;
+}
+#mainNav ul.submenu li a:hover {
+	color: firebrick;
+    background: none;
+}
+
+           
+         
+        
+           .social-menu {
+            display: block;
+            position:absolute;
+            width: 100px;
+            height: 30px;
+               top: 270px;
+               z-index: 2;
+            
+            }
+            .social-menu li{
+            color:white;
+            list-style-type: none;
+            float: left;
+            border-bottom: none;
+            
+                }
+           .social-menu li a{
+    
+                border-bottom: none;
+            
+                }
+           
+           .social-menu i {
+            color:beige;
+            width: 10px;
+            height: 10px;
+            font-size: 10px;
+            margin: 10px;
+            transition: all 0.2s ease-in-out;
+            justify-content: center;
+            background: transparent;
+            border: none;
+        }
+            .social-menu i:hover {
+            opacity: .5;
+            border-radius: 0;
+                color: burlywood;
+        }
+
+        .social-menu i:before {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+        }
+
+        .social-menu a {
+            text-decoration:none;
+        }
+        
+           
+           
+           section #content{
+               
+               margin: 0 auto;
+               position: relative;
+           }
+           
+            .social {
+                
+                margin: 10px;
+                
+            }
+
+            .social a{
+                
+                width: 40px;
+                height: 40px;
+                text-decoration: none;
+                border: none;
+                
+                
+                
+            }
+           
+            
+            .social li{
+                
+              list-style: none;
+                padding-left: 10px;
+                
+            }
+           
+           /*contact styles*/
+#contact h2 {
+	margin-bottom: 1em;
+}
+
+a.phone {
+	padding: .5em .5em .5em 30px;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAWBJREFUeNpiZMADfF2cEoCUAgN54MHmPfsW4JJkxGPpfCCVwEAZWAC0PJFoi4GWGgCp8wzUAYZAyy+gC7LgUCwAIpzd3BnEJCTIsu3VixcMe3fthJtFrMUMMIt19PXJsvjKxYswi7ECJoYBAqMWj1o8avGoxaMWj1o8+CzGWx/Pnj6VgYeHhyyDv3z5QromYNPHAYj/X75w4T8IVBUXotDLFi2Ey4HY2ORAGGQGyCxsdjBjE1RXUlSANfTu37vLcBnYmvj69SucvnLxAsOrly/BcjA2htzdu2AMBAtv3bv/gKQ4BjVdQG2ngtIyhhNHj8DpyNh4BkVlZbAciI1NDl+zZ0ATF67mLShe9sNamXt37mRwdneH06DgFBOXAMuB2Dr6BhhysBADAkdg8/YAWa1MkGGRsXFwejlQTldPHywHYmOTQ7KYJB/TvEGPNY6hChdQwdIF2CzF23eidacNIMAAxi/joc6jdacAAAAASUVORK5CYII=)no-repeat left center;
+	border: 1px solid rgb(123, 121, 143);
+	margin: 2.4em auto;
+	width: 200px;
+	display:flex;
+    align-items: center;
+    
+}
+.connect {
+	margin-top: 2em;
+}
+
+#contact li a {
+	padding-left: 30px;
+	line-height: 35px;
+	font-size: 1em;
+	display:block;
+	background-size: 20%;
+}
+a.phone:hover {
+	border: 1px solid rgb(123, 121, 143);
+}
+            
+            
+
+/*form styles*/
+fieldset {
+	width: 90%;
+    background-color: beige;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="email"], input[type="url"], textarea {
+	width: 95%;
+}
+
+fieldset p {
+	float: none;
+	width: auto;
+}
+           
+           /*article cakes*/
+           
+           
+           article.cakes{
+               
+               width: auto;
+               padding:2%;
+               background: beige;
+               
+               
+               
+           }
+           
+           .art_of_cakes{
+               
+               width: 80%;
+               left: 30px;
+               right: 30px;
+               top: 10px;
+               bottom: 100px;
+               height: 70%;
+                margin: 0 auto;
+                background-color: transparent;
+                text-align: center;
+               padding: 10px 0px;
+               
+           }
+           
+            .art_of_cakes_content_top_left{
+            
+            width: 100%;
+            padding: 10px 0px;
+            text-align: center;
+
+            }
+            .art_of_cakes_content_top_left h2 {
+            
+            text-transform: uppercase;
+                color: rosybrown;
+                padding-bottom: 5px;
+                font-size: 1.4em;
+
+            }
+            .art_of_cakes_content_top_left h3 {
+            
+            text-transform: uppercase;
+                color: burlywood;
+                font-size: 12px;
+                padding-bottom: 5px;
+
+            }
+           
+            .art_of_cakes .art_of_cakes_content_bottom_left{
+            
+            width: 100%;
+            height:200px;
+            font-size: 1em;
+            text-align: center;
+            position: relative;
+               
+
+            }
+
+           
+           .art_of_cakes .art_of_cakes_content_bottom_left h2{
+            
+                        font-weight:bold;
+                        padding: 15px;
+                        font-size: 1.3em;
+                        }
+
+                .benito_gaspare{
+                    width:auto;
+                    left: 0;
+                    right: 0;
+                    height: 70px;
+                    padding: 5px;
+                    margin: 0;
+                    display: flex;
+                    justify-content: center;
+                    
+                    
+                    
+                }
+                    div.benito, div.gaspare{
+                        width: 25%;
+                        height: auto;
+                        padding: 10px;
+                        border-bottom: 1px solid black;
+                        border-top: 1px solid black;
+                        margin: 10px;
+                        font-family: 'Nanum Myeongjo', serif;
+                    }
+                            
+                .text_botom_left span.rquote{
+                    display: inline-block;
+                    transform: rotateY(180deg);
+                }
+
+                
+                                
+                .text_botom_left{
+                    width: 100%;
+                    height: 40px;
+                    position: relative;
+                    padding-top:10px;
+                    font-size: 1.2em;
+                    color: burlywood;
+                    
+                }
+           
+            .text_botom_left p{
+                    width: 100%;
+                    height: 70px;
+                    font-size: 1em;
+                    color: burlywood;
+                    
+                }
+            .benito_gaspare .face_img img{
+
+                border: 2px solid white;
+                border-radius:50%;
+                margin: 0px 10px;
+                object-fit: cover;
+               width: 50px;
+               height: 50px;
+                box-shadow: 2px black;
+                filter: saturate(100%);
+            }
+           
+            .img_gallery_cakes{
+
+                width: 100%;
+                height: 120px;
+                float: none;
+                margin-top: 25px;
+                position: relative;
+                bottom: 30px;
+
+            }
+      
+      
+      .cake_indgredients {
+          
+           width: 100%;
+          height: 100%;
+          
+      }
+           .cake_indgredients li{
+          position: relative;
+          
+      }
+      
+       .cake_indgredients a:hover:after{
+          
+           content: attr(title);
+           display: block;
+           width: 100%;
+           position: absolute;
+           left: 0;
+           top: 0;
+           line-height: 2em;
+           color: white;
+           text-align: center;
+           background: rgba(25,25,25,.8);
+           z-index: 999;
+      }
+      
+                     .cake_indgredients ul li{
+                         display: inline-block;
+                         border: none;
+                         padding: 1px;
+                         width: 24%;
+                         float:left;
+                         
+
+                     }
+      .cake_indgredients ul li img{
+          
+          width: 100%;
+          height: 50%;
+      }
+        
+           
+           .taste{
+                    display: none;
+
+                }
+
+           
+            article.tasty_pancakes{
+
+                width: auto;
+                height: 900px;
+                margin: 0 auto;
+                position: relative;
+                background: url(../images/Ebene-11.png) no-repeat 0 0;
+                background-size: cover;
+                padding-left: 50px;
+
+            }
+                    .tasty_pancakes_content{
+
+                           
+                                    margin: 0 auto;
+                                    width: 90%;
+                                    padding: 5px 0px;
+                                
+                                    
+
+                    }
+
+                            .tasty_pancakes_content .content_right{
+
+                                    width: 95%;
+                                    height:80%;
+                                    top: 5px;
+                                  
+                                    text-align: top;
+                                    padding: 0px 10px;
+                            }
+      
+      
+                                  .content_right .inline{
+                                      float: none;
+                                      display: block;
+                                      width: 90%;
+                                      margin: 0 auto 1em;
+                                      min-width: 200px;
+                                  }
+                                    .content_right .video{
+                                        position: relative;
+                                        padding-bottom: 58%;
+                                        padding-top: 5px;
+                                        height: 0;
+                                        margin-bottom: 1em;
+                                  }
+                                       .video iframe{
+                                          top: 0;
+                                          left: 0;
+                                        width: 100%;
+                                        height: 100%;
+                                       position: absolute;
+                                  }
+           
+                                                       .content_right p{
+
+                                                           color: saddlebrown;
+                                                           font-size: 0.8em;
+                                                           padding-top: 10px;
+                                                           font-family: Arial Georgia sans-serif;
+                                                           letter-spacing: 1px;
+                                                           box-shadow:  5px 10px 100px gainsboro inset;
+                                                           text-align: justify;
+                                                       }
+                                                        
+                                                            .content_right h2{
+
+                                                             color: saddlebrown;
+                                                             padding-left: 0px;
+                                                                font-size: 1.6em;
+
+                                                           }
+           
+                                                        .content_right h3{
+                                                            
+                                                           color: sandybrown;
+                                                           margin-top: 5px;
+                                                           padding-bottom: 15px;
+                                                            font-size: 1.2em;
+                                                       }
+           
+                                                    .gallery_ingredients_bottom {
+
+                                                        height: auto;
+                                                        width: auto;
+                                                        text-align: center;
+                                                        vertical-align: middle;
+                                                    }
+                                                        .content_right ul{
+                                                                width: 320px;
+                                                                height: 100px;
+                                                                margin: 0 auto;
+                                                                position: relative;
+
+
+                                                        }
+
+                                    .content_right ul li{
+                                       display: inline-block;
+                                        top: 20px;
+                                        padding: 5px;
+                                        position: relative;
+                                        
+                                    }
+
+                          
+
+                                        
+           
+                                            .ready{
+
+                                           display: none;
+                                            
+                                        }
+                                            .ready h3{
+                                                        font-size: 0.8em;
+                                                        font-family:Arial Georgia sans-serif;
+                                                        color: saddlebrown;
+                                                letter-spacing: 2px;
+
+                                            }
+           
+                                                .ready .forthy_min{
+                                                        font-size: 1.6em;
+                                                        font-family:Arial Georgia sans-serif;
+                                                        color: grey;
+                                                        padding: 5px 0;
+                                                        font-weight: 700;
+                                                        letter-spacing:5px;
+                                                
+
+                                            }
+                                                        .ready p{
+                                                        font-size: 0.8em;
+                                                        font-family:Arial Georgia sans-serif;
+                                                        color: saddlebrown;
+                                                letter-spacing: 2px;
+
+                                            }
+           
+                                        article.breakfast{
+                                        
+                                        width: auto;
+                                        height: 450px;
+                                        background: url(../Images/breakfast-small.png)  no-repeat 0 0 ;
+                                        background-size: cover;
+                                        margin:0 auto;
+                                        position: relative;
+                                    
+                                         }
+           
+                                       
+
+                                               article .time_table{
+                                                   
+                                                width:80%;
+                                                height: 330px;
+                                                position: absolute;
+                                                margin:50px 50px;
+                                                   text-align: center;
+                                                   padding-top: 20px;
+                                                }
+                                                   
+                                                
+                                                    article .menu{
+                                                        display: none;
+                                                   }
+                                                        
+           
+           
+                                                        article .plant{
+                                                            
+                                                           display: none;
+                                                            
+               
+                                                        }
+           
+                                                                div.time_table h2{
+
+                                                                color: white;
+                                                                font-family: 'Nanum Myeongjo', serif;
+                                                                font-size: 2.5em;
+                                                                padding-bottom: 5px;
+                                                                 padding: 0 0 5px 15px;
+                                                                letter-spacing: 2px;
+                                                                font-weight: 600;
+
+                                                            } 
+                                                                div.time_table h3{
+
+                                                                color: white;
+                                                                font-family: Arial Georgia sans-serif;
+                                                                font-size: 20px;
+                                                                padding-bottom: 5px;
+                                                                 padding: 0 0 5px 15px;
+
+                                                            } 
+
+                                                                div.time_table p{
+
+                                                                color: bisque;
+                                                                font-family: 'Nanum Myeongjo', serif;
+                                                                font-size: 18px;
+                                                                text-transform: uppercase;
+                                                                padding-bottom: 5px;
+                                                                 padding: 0 0 5px 15px;
+
+                                                            }
+                                                                    div.time_table h4{
+
+                                                                        color: lightgoldenrodyellow;
+                                                                        font-size: 14px;
+                                                                        font-family: Arial Georgia sans-serif;
+                                                                    }
+           
+                                                                                        article.jibarito_sandwich{
+                                                                                        
+                                                                                        width: auto;
+                                                                                        height: 600px;
+                                                                                        position: relative;
+                                                                                        background: linear-gradient(rgba(245,231,190,.8), rgba(245,231,190,.8)), url(../Images/Jubarito_back.png) no-repeat 0 0;
+                                                                                        background-size: contain;
+                                                                        
+                                                                                        }
+
+                                                                                            article .jibarito_title{
+
+                                                                                                width: auto;
+                                                                                                height: 130px;
+                                                                                                margin: 0 auto;
+                                                                                                text-align: center;
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                            
+                                                                                            }
+
+                                                                                                    .jibarito_title h2{
+                                                                                                        text-align: center;
+                                                                                                        font-size: 1.5em;
+                                                                                                        position: absolute;
+                                                                                                        padding: 10px;
+                                                                                                        width: 100%;
+                                                                                                        line-height: 20px;
+                                                                                                        margin-top: 40px;
+                                                                                                        letter-spacing: 1px;
+                                                                                                        font-weight: 600;
+                                                                                                        
+                                                                                                    }
+                                                                                                        .jibarito_title h3{
+                                                                                                        text-align: center;
+                                                                                                        font-size: 1.2em;
+                                                                                                        position: absolute;
+                                                                                                        padding: 10px;
+                                                                                                        width: 100%;
+                                                                                                            letter-spacing: 1px;
+                                                                                                           line-height: 20px;
+                                                                                                            margin-top: 60px;
+                                                                                                            color: brown;
+                                                                                                            text-transform: uppercase;
+                                                                                                        
+                                                                                                    }
+
+                                                                                            .jibarito_left{
+
+                                                                                                width: 90%;
+                                                                                                height:80px;
+                                                                                                display: block;
+                                                                                                position: absolute;
+                                                                                                bottom: 10px;
+                                                                                                text-align: center;
+                                                                                                padding-top: 10px;
+                                                                                                top: 420px;
+                                                                                                margin: 50px 40px 10px;
+                                                                                            
+                                                                                            
+                                                                                            }
+           
+                                                                                            .jibarito_right{
+
+                                                                                                width: auto;
+                                                                                                height: auto;
+                                                                                                margin: 0 auto; 
+                                                                                                
+                                                                                            }
+
+                                                                                                    
+                                                                                                .jibarito_left img{
+
+                                                                                                width: 30px;
+                                                                                                height: 30px;
+                                                                                                border-radius: 50%;
+                                                                                                 
+                                                                                                    
+                                                                                            }
+           
+                                                                                                .jibarito_left p{
+                                                                                                display: none;
+                                                                                                    
+                                                                                            }
+                                                                                                .jibarito_left div{
+                                                                                                    width: auto;
+                                                                                                    display: inline-block;
+                                                                                                    font-size: 12px;
+                                                                                                    vertical-align: middle;
+                                                                                            }
+
+
+                                                                                            .jibarito_left h2{
+
+                                                                                                    color: saddlebrown;
+                                                                                                    text-align: center;
+                                                                                                    font-size: 1.5em;
+                                                                                                    margin: 10px;
+                                                                                                    }
+                                                                                                    
+                                                                                                    .jibarito_left .zero_fats{
+
+                                                                                                    margin: 0px;
+                                                                                                            }
+                                                                                                    
+                                                                                                    .jibarito_left .cheese{
+
+                                                                                                    margin: 0px;
+                                                                                                        
+                                                                                                    }
+                                                                                                    
+
+                                                                                        .jibarito_s{
+                                                                                             width: auto;
+                                                                                             height: auto;
+                                                                                             margin-left: 10px;
+                                                                                            text-align: center;
+                                                                                            
+                                                                                           
+                                                              
+                                                                                                }
+           
+                                                                                        .jibarito_s img{
+                                                                                            
+                                                                                            border: 3px solid white;
+                                                                                            max-height: 100%;
+                                                                                            max-width: 100%;
+                                                                                            box-shadow: 3px 3px 6px #888888;
+                                                                                        }
+           
+                                                                                                    div.prep_info{
+
+                                                                                                    width: auto;
+                                                                                                    height: auto;
+                                                                                                    text-align: center;
+                                                                                                    padding: 10px ;
+                                                                                                    position: absolute;
+                                                                                                    right: 35px;
+                                                                                                    bottom:130px;
+                                                                                                    
+                                                                                                
+                                                                                                }
+
+                                                                                                            div.prep_info p:first-of-type{
+                                                                                                            
+                                                                                                            font-size:2em;
+                                                                                                            font-weight: 600;
+                                                                                                            font-family: Arial Georgia sans-serif;
+
+
+                                                                                                        }
+                                                                                                    .prep_info h3{
+
+                                                                                                        color: saddlebrown;
+                                                                                                        padding-bottom: 5px;
+                                                                                                        font-size: 10px;
+                                                                                                        letter-spacing: 1px;
+                                                                                                    }
+
+                                                                                                    .prep, .cook{
+                                                                                                        
+                                                                                                        padding: 15px;
+                                                                                                    
+                                                                                                        width: auto;
+                                                                                                        height: 80px;
+                                                                                                        background: rgba(255,255,255,0.5);
+                                                                                                        margin-bottom: 1px;
+                                                                                                        font-family: Arial Georgia sans-serif;
+                                                                                                        
+                                                                                                                    }
+                                                                                                    
+
+                                                                                                    .ready_50{
+                                                                                                       padding: 15px;
+                                                                                                        background: rgba(255,255,255,0.8);
+                                                                                                        width: auto;
+                                                                                                        height: auto;
+                                                                                                        font-family: Arial Georgia sans-serif;
+                                                                                                        
+                                                                                                        
+                                                                                                                    }
+                                                                                                                    div.ready_50 p:first-of-type{
+                                                                                                                        
+                                                                                                                        font-size: 3.2em;
+                                                                                                                        color: burlywood;
+                                                                                                                        letter-spacing: 2px;
+                                                                                                                        
+                                                                                                                                    }
+
+                                                                                                                #recipe a{
+                                                                                                                    
+                                                                                                                    height: 2em;
+                                                                                                                    width: 4em;
+                                                                                                                    padding: 10px;
+                                                                                                                    letter-spacing: 1px;
+                                                                                                                    border: 1px dashed burlywood;
+                                                                                                                    border-radius: .5em;
+                                                                                                                    color: beige;
+                                                                                                                    margin-left: 10%;
+                                                                                                                    background: rgb(95,150,120);
+                                                                                                                }
+                                                                                                                
+                                                                                                                    #pageFooter{
+ 
+
+                                                                                                                width: auto;
+                                                                                                                height: 80px;
+                                                                                                                background-color: burlywood;
+                                                                                                                bottom: 0px;
+                                                                                                                position: relative;
+                                                                                                                color: saddlebrown;
+                                                                                                                padding:0;
+                                                                                                                
+                                                                                                            }
+             
+           
+            .foot_main{
+    
+                    width: 100%;
+                    height: 90%;
+                    position: absolute;
+                padding: 5px 0px;
+                
+                  
+                    }
+            
+           .foot_logo{
+    
+                width: 80px;
+                height: auto;
+                font-size: 1.5em;
+                position: absolute;
+                display: block;
+                left: 35%;
+                right: 50%;
+                top: 22%;
+               text-align: center;
+                
+            }
+
+.foot_logo a {
+	text-decoration: none;
+	color: bisque;
+    border-bottom: none;
+    font-family: 'Nanum Myeongjo', serif;
+    letter-spacing: 1px;
+    
+	
+}
+
+.foot_logo a:hover {
+	color:firebrick;
+}
+
+
+.foot_left{
+     width: auto;
+    height: auto;
+    list-style-type: none;
+    display: block;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-color: burlywood;
+    left: 10px;
+    position: absolute;
+    
+   
+    
+}
+        .foot_left li{
+        padding:  10px;
+        height: auto;
+        float: none;
+        font-size: 0.6em;
+        letter-spacing: 2px;
+        font-weight: 600;
+    
+            }
+            .foot_left li a{
+            
+               text-decoration-line: none;
+                border-bottom: none;
+                cursor: pointer;
+                color: saddlebrown;
+    
+            }
+           
+           .foot_left li a:hover{
+            color:firebrick;
+    
+            }
+           
+            .foot_right{
+                 width: auto;
+                height: auto;
+                list-style-type: none;
+                display: block;
+                right: 10px;
+                box-shadow: 0px 10px 15px burlywood inset;
+                border-top: 1px solid black;
+                border-bottom: 1px solid black;
+                border-color: burlywood;
+                position: absolute;
+    
+}
+            .foot_right li{
+                 padding: 10px ;
+                height: auto;
+                float: none;
+                font-size: 0.6em;
+                letter-spacing: 2px;
+                font-weight: 600;
+               
+    
+   
+}
+            .foot_right li a{
+            
+               text-decoration-line: none;
+                border-bottom: none;
+                cursor: pointer;
+                color: saddlebrown;
+    
+            }
+           
+           .foot_right li a:hover{
+            color:firebrick;
+    
+            }
+           
+/*footer styles*/
+            #pageFooter {
+                clear:both;
+                overflow:hidden;
+                padding-bottom: 2em;
+            }
+
+            #pageFooter form {
+                width: 90%;
+                margin: 0 auto 1em;
+            }
+
+            .notice {
+                width: 300px;
+            }
+
+            #pageFooter p {
+                margin-left: 5%;
+            }
+
+           
+}
+
+/* desktop styles */
+
+
+  @media only screen and (min-width:769px) {
+        body{
+            
+            width: auto;
+            margin: 0 auto;
+            padding: 0px;
+            position: relative;
+            background-color: antiquewhite;
+            overflow-x:hidden;
+
+        }
+      
+        header{
+            
+            text-align: center;
+            width: auto;
+            position: relative;
+            background: url(../images/Banner-desktop.png) no-repeat 0 0;
+            height: 500px;
+            color: sandybrown;
+            padding-top: 1px;
+            overflow: hidden;
+            background-size: cover;
+            
+        }
+        
+        #pageHeader button{
+
+                cursor: pointer;
+                border: 1px solid #3498db;
+                background-color: rgba(0, 0, 0, .5);
+                height: 50px;
+                width: 150px;
+                color: firebrick;
+                font-size: 1.2em;
+                box-shadow: 0 6px 6px rgba(0, 0, 0, .9);
+                border-radius: 10%;
+                top: 225px;
+               position: relative;
+        }
+        
+        #pageHeader hgroup{
+            
+            top: 120px;
+            position: relative;
+             width: auto;
+               height: 20%;
+               bottom: 55px;
+        }
+        
+       
+        #pageHeader hgroup h1{
+               
+               font-size:4em;
+               
+               
+                    }
+              #pageHeader hgroup h2{
+               
+               font-size: 2em;
+               color: beige;
+               
+                    }
+           
+        hgroup a{
+               
+            border-bottom: none;
+            color: saddlebrown;
+               
+                    }
+     
+        
+        #mainNav{
+            
+            
+            background: rgba(21,14,12,.3);
+            width:100%;
+            height: auto;
+            padding-left: 0px;
+            top: 1px;
+            position: absolute;
+            display: block;
+            z-index: 1;
+          
+            
+
+        }
+
+            
+            
+
+
+        .topMenu {
+                    width: 65%;
+                    margin: 0 auto;
+                    height:auto;
+                    display: block;
+                position: relative;
+            font-size: 1em;
+                    
+                }
+           
+        .topMenu h3{
+               
+               color: beige;
+                margin: 0px;
+            font-size: 12px;
+                
+           }
+       .topMenu li{
+               
+            
+            font-size: 12px;
+                
+           }
+  
+        #mainNav h2 {
+                display: none;
+            }
+      
+           
+        
+           #mainNav li:last-child {
+	           margin-right: 0;
+            }
+
+
+
+        #mainNav li{
+            float: left;
+            padding: 5px;
+            margin: 5px;
+            color: beige;
+            list-style: none;
+            font-family: 'Nanum Myeongjo', serif;
+            position: relative;
+            width: auto;
+            
+            
+        }
+        #mainNav li a:hover{
+
+                color: burlywood;
+                cursor: pointer;
+        }
+      
+       #mainNav li h3:hover{
+
+                color: burlywood;
+                cursor: pointer;
+        }
+
+        
+        #mainNav li a{
+            color: beige;
+            text-decoration-line: none;
+            padding-bottom: 5px;
+            border-bottom: none;
+            cursor: pointer;
+              
+        }
+
+
+
+/*dropdown menu styles*/
+#mainNav ul.submenu {
+	float: none;
+	width: auto;
+	height: auto;
+	top: 11px;
+    margin: 5px;
+	padding-top: 1.1em;
+	left: -6000em;
+	max-height: 0;
+	-moz-transition:max-height 0.5s ease;
+	-webkit-transition:max-height 0.5s ease;
+	-o-transition:max-height 0.5s ease;
+	transition:max-height 0.5s ease;
+	overflow: hidden;
+	z-index: 1000;
+    position: absolute;
+}
+
+
+
+#mainNav ul.submenu li {
+	float: none;
+	margin: 0px;
+	background: rgba(76, 67, 65, .9);
+    border-bottom: 1px solid beige;
+    width: 170px;
+}
+
+#mainNav li:hover ul {
+	left: 0;
+	max-height: 20em;
+}
+
+#mainNav ul.submenu li a {
+	border-bottom: none;
+	padding: .5em .5em;
+	color: beige;
+	text-align: center;
+	font-size: 0.9em;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: auto;
+}
+#mainNav ul.submenu li:last-child a {
+	border-bottom: none;
+}
+#mainNav ul.submenu li a:hover {
+	background: none;
+    color: burlywood;
+}
+
+            .logo
+                {
+                width: 100px;
+                    height: 20px;
+                    position: absolute;
+                    top: 5px;
+                    left: 20px;
+                    z-index: 2;
+                    letter-spacing: 2px;
+                    
+                  
+                }
+
+            .logo a{
+                color:beige;
+                font-size: 1.7em;
+                font-family: 'Nanum Myeongjo', serif;
+                font-style: oblique;
+                border-bottom: none;
+            }
+      
+      
+      /* section social*/
+      
+      .social{
+          
+          padding-left: 10px;
+      }
+      .social p{
+          
+          width: 10%;
+        
+      }
+        
+    
+        .social-menu li{
+            color:blue;
+            list-style-type: none;
+            float: right;
+    
+        }
+        
+         .social-menu {
+             top: 1px;
+            display: block;
+            position:absolute;
+            width: 170px;
+             height: 50px;
+             right: 10px;
+             z-index: 2;
+             
+}
+ 
+        .social-menu i {
+            color:beige;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 25px;
+            margin: 10px;
+            transition: all 0.2s ease-in-out;
+            display: flex;
+            justify-content: center;
+            background: transparent;
+            
+        }
+            .social-menu i:hover {
+            opacity: .5;
+            border-radius: 0;
+                color: burlywood;
+        }
+
+        .social-menu i:before {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+        }
+
+        .social-menu a {
+            text-decoration:none;
+        }
+        
+        
+
+        .fa-facebook {
+            background:#3b5998
+        } 
+
+        .fa-linkedin {
+            background:#007bb6
+        }
+
+        .fa-twitter {
+            background:#00aced
+        }
+
+
+/*contact styles*/
+      
+    a.phone {
+	padding: .5em .5em .5em 30px;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAWBJREFUeNpiZMADfF2cEoCUAgN54MHmPfsW4JJkxGPpfCCVwEAZWAC0PJFoi4GWGgCp8wzUAYZAyy+gC7LgUCwAIpzd3BnEJCTIsu3VixcMe3fthJtFrMUMMIt19PXJsvjKxYswi7ECJoYBAqMWj1o8avGoxaMWj1o8+CzGWx/Pnj6VgYeHhyyDv3z5QromYNPHAYj/X75w4T8IVBUXotDLFi2Ey4HY2ORAGGQGyCxsdjBjE1RXUlSANfTu37vLcBnYmvj69SucvnLxAsOrly/BcjA2htzdu2AMBAtv3bv/gKQ4BjVdQG2ngtIyhhNHj8DpyNh4BkVlZbAciI1NDl+zZ0ATF67mLShe9sNamXt37mRwdneH06DgFBOXAMuB2Dr6BhhysBADAkdg8/YAWa1MkGGRsXFwejlQTldPHywHYmOTQ7KYJB/TvEGPNY6hChdQwdIF2CzF23eidacNIMAAxi/joc6jdacAAAAASUVORK5CYII=)no-repeat left center;
+	border: 1px solid rgb(123, 121, 143);
+	margin: 2.4em auto;
+	width: 100px;
+	display:flex;
+    align-items: center;
+    cursor: pointer;
+    
+}
+        #contact h1 {
+            background-position: right -390px; 
+            margin-bottom: 1em;
+            }
+
+            #contact h2 {
+                font-size: 1.4em;
+            }
+
+            #contact h3 {
+                font-size: 1em;
+                border-bottom: 1px solid rgb(76, 67, 65);
+                margin: 1em 0 .5em;
+            }
+
+            #contact ul {
+                list-style: none;
+            }
+
+            #contact ul li {
+                margin-bottom: 1em;
+                width: 44%;
+                display: inline-block;
+            }
+
+            #contact li a {
+                color:rgb(76, 67, 65);
+                border: none;
+                padding-left: 40px;
+                line-height: 50px;
+                font-size: 1.2em;
+                display:block;
+            }
+
+            #contact li a:hover {
+                color: rgb(123, 121, 143);
+            }
+      
+      
+      a.twitter {
+	background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAt1JREFUeNrsWDtv01AUvo6QCAPIHZCo6OCwwRRYeAyoAXVA7RDUCYkhRvwAMiNRZUcEdoQ7IDEVOlAxIEjFQMtSPLUT2AMoSAxYLBiWcD7nXGrFjxvboTUSn3QUx497Pp9z7nlYEzkwGAzq9AMxYi67JLamaXbWdbUMBKB4iaRJovv+T/Gl/zVy37Hpo6JaPYhDj2SVpEPE3ImQYRIWyaz37bvYeGsLx/kUSyRMqFabEecv1IU+dQSn1klMFSlNQeQW/XRB4tnKy4BEVoDU1cU5SapNhO5nIkMkdJAgafVevxO9V5uiKBqXz4nGpbM4XGZSnpIME+lRTNSfPH4escaNm4vCoLcN487tB2Nb6dr1BcQUgrsxSqgS80wXRB49XMnlljRgPayL9dnyIpEMx0gLFkkL0CLAulgfelhflAzvmi5iZNIWibMQ9EAf641YxsKumUSwjgPogT5OG7sBzOwcKyFOTp85RXJyNKntptwES/bJJS/W3qQGtEkbAofIQQf4/BJYJrkHOWJ0B4WRdk3lLuil9ZHZTemmJjLrfoD1NoOY4aKn/+2gTbMO9IMH3FRPKnoS77e2hftxSPbK/MUgbsJArMXhB607zlaHforDgIyhyinwK0d+8GDC2xXKPRR3RkWUCP/J/DNk3NHdsddg/S7I2Ejv+0UoVF7sCnfxXi1nSpflIi9YrwceMmZW0TyPg35MTkIhzQvWiylCyELZobdrgaUqgfn+r2h/S72trh8W9tZO8L96aOh2nEMjn2YVtmrnDxmUb6oN69TFz967aymzZRyGbUbUQmgh/ISygKkBY4wcYcJb2wRLdPFp2Nn+kKklnU7YGNDDVjEjeYbZtWFyVTA/JdPLWqWCcWIm1j08trTDg13cqGKRWVvo4lUWgFuM2nExRW8ot6js+hznc/C8Q9U+7Cbch3GH7l0mImahuakIVHNTuSfK0s3apfwKUbrvM3v55eq3AAMAe02W/xUZP0QAAAAASUVORK5CYII=) no-repeat left center;
+}
+
+a.flickr {
+	background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAxRJREFUeNrMmL9v01AQx58rS02XyhmQUokhpZOzYHeBdkAJqAOCAdQJiSFB7JC/oAoI1jIyINIBiakiA6gDgkRINLAQT2VCyQBKJYZYZSlTuK85V4794h/Nj+akp1ix9e7je9+7986KOIX1+32DfjCyktsdGpaiKFbSeZUEAHC8ReMWDe34+K847P4OPJdZOidSqXlc2jRqNCoE1hkLDENUaeTt3pFo7lui3f4pBfECLS+fF2vrhtDSi/irQaMUBaVEgDykn21AvNl970AkNUDd3txwocoE9CwRDEFogKBRrH/8KuofvohRrXDtsihcvYTLHYayI2EYpE6aMF6/ehuIBvRgruaEnrsgNG3RfWOB6Nn2kejS8nXav8T3gx/SKN25exNzQNwFP5AMpkogxZcvdgO60HMrTshZoKH29PFzAZHL9HTv/ibm2CGYkvfenEQjRUTED4IIxAVBlGQgMMyL+eGH/QVhOGu2oRGZUJEZcUBg3ZBMg2F++IE/9uuY6nmmijcaJtYlCq/fMGHzc2sgCtBFHIMf09QRcZSNwklkmC6P9I1rrW8HzoT+5cBbxy0B7C/vRsddpi1EJUkdse0/I6c7/MEvV/b/2URkvb13n7TmfmvgYaSwuar7y/xAKssMmRjX1tZNcf3GFZsyK63ypqfJooIMyg7RAO65NSbM8BIL9BIZ1hyyCQJ3l5f9auCAgI1hm95p7dGTBwJR1vWVocC0Es4zhwxGUTegmew4QbzhD4ucV/jsP6tGpZ+b6qia3iWT7Vn+Z8JAZNuFKiZoSH/sUxB7j8Sepr3MSYSFeWmFniiMv25FlY85MUMGmE5GUuqnaey/Axgr5akDZwHCxdRScYqngmPTBqdNIsXjHEshJ3C4mqnhiHAWxn5rXgFXUKDibv/jjAoXxsoJDLcQDZzkpmnsr+G2MN7ULoESp/hpGPxwVEqBOsN0ZbQTk14uzM9tS9nb2A1UYDRYlFkXqZ0IdAf+cy0fihKdfd1URruC/snf0CXum0aNSKK+aaY6ypnrtWfyK8TMfZ+Z5perfwIMAMprx6Ii41NCAAAAAElFTkSuQmCC) no-repeat left center;
+}
+
+a.facebook {
+	background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAsRJREFUeNrUWL9v00AUPkeV6ITcAalVGRwxpZPThR9TAmJjCOqExFAj/gD8F0QREmsZGRDJgMRUkYENQTLxYwFPZULNACoSA6eylCm87/RcnV3bZ5s6NZ/0FCv23ff53Xvv7tkSJTCfz136gTkJt2dkgWVZQdF5rQICQNwn65HZR0d/xI+DnyeeW127IJaXz+FSko3JBiRsdipiWMSQrCN/HYr37wKxv/8tUYguqNm8KK5ec4W9ch5/Tck8kyjLIOQB/exAxMvd10pEUUDU7a2boSifBD0uJIZE2BBBtj15+1FM3nwQ/4rujSuie/0yLkcsShrFsJAJxYT74vmrUt7I8tKdu7cQUwjublxQkpghCdl+9nQ3My4ABGp7c0M4zXWxQsuAWFGRS8sq5SG9yHc1x5e9r5F4und/C2NHJMZLFRPGyJCEmDzS2rikYoEzJxOPHj4RyD7dQx4JisdQI5Y1O4gRkxAEY14h8JIuBMD84AEf80bFIH0xME+wImXzCAEOUpYaPODjsqGwpHmlg/TNgzWOjcjk9KafP+2FBEps0nM6wEfL1QE/alDomT4mKZs5EKG9qQKWBvNlzYl7PKavL1MPlbUspPxdeizz9tQy8aZnm7yCFG5vto7TM3Kv3aIMWU8chxKRBea1oQMx46ZtevEMcigl0+5xuS8M8IKfYszFMjkmIVWD+Z2GqBGW8j6IbAlrEMq5vmSntZnWyjO1EzNbNVTKqsH8qgIHKN1nJUg7MwcNPsXLZkoNqRrMK6EjjJkxduKzAPOO9QAeoIIu2jvg48o9OBbDLcQUB6ZFgvmmYQujp7YHlTjFLwLgYa94J+oMq/PRTlS9XJif2xZfb+wiRY8PxyO0E1WlOubF/OCJN3RJFdhHX4P9J81DONfO6BwSmn7CM3mE2xSUE///6ihr12vX8itE7b7PLPLL1V8BBgDG73obtV/8SAAAAABJRU5ErkJggg==) no-repeat left center;
+}
+
+a.linked {
+	background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAsFJREFUeNrMmD1s01AQx5+jSJQFpUMlKnVwYGqnpAu0A0qoGPgYijpRdYhRJ4QEmZGIgsQc2BHp0MJUkaGIAUEihpZO8USmEg9FRWLAYmk6hfuHc3DjFztxHccnnRK9PL/75d7du3dWhA9pt9sp+oCqkp8NUl1RFH3YdZUhAGC4QLpMmmi1TsTPo1+OeRenp8TExDl8NUkrpEUCMwKBYYgyacb8/Ufs7eqi2TyUgtiBkskZsbCYEonJCxiqkWpeUIoHyGP6KAHi3fbHDsSwAqi7KzcsqDwBvRgKhiASgCDNVT/vi+qnr+Kskl26KrLXr+DrBkOZnjAMUqWYSL3d3PHlDTcv3Vu7g5hCcGd7gWQwZQLJvX613YkLLKCtr5ya8/TJS99AiKf7tB4BbRCMZv8tJomRHDziFqBnEayL9WGH7TlhOGtKiJEgt0YmWB92YI/tOjxTRtYEEayDCOzAHh8b/2GYLoP0DVPYXsbyjuWZAihHvT2y7WLvFOwwyzhZxyFsFyVGxLnoJcL2it07sA+OOKpvv6I3yJlxnoriMT+PAjlNY+qlme6c1vGJaDQOrO2Qpjrs07MdGNXvmXLr9jWhJv8Zbnw7ELNzl6XzbtK8vd26+PD+S18gWkeNBeXufiCWLCymRXp+znVOLOgYwL80KA4MSQym52ddn40HCfFma+dUbCCGHjxcta4P3S0duWcQhL1BirF6vTHwGoAxkBXjFLZvAEaHO8cFZLsz6zG+xZtJj/0clbBdExxWzFRweR6HsN2KPZuKFPE5UA5SFp49f+QYQ6b0jiO9m80frl7hTCt2s4lbiBpu8WEK26tZLYw9tTVQ4hYfhsAOe0VzHHqgo8qZp3aiZHw/7G4XiqDhs6If0UGIs6f3eWwPty15e2Pn2R2MIpX7dQfR7psi1VFGrteO5FuIyL2fCfPN1V8BBgC1+pXDVk2EjQAAAABJRU5ErkJggg==) no-repeat left center;
+}
+
+a.google {
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA55JREFUeNrMWL9PE1EcfyUk4CA5Ek0kYSiweEytC8JgehIHo0NNJxOHnuEPEKIzYTfiYJyMZRCYiB1qHIyWmEh1oXVpXaAdNCXRhEaHFhf8fq7vne9e73q9Qkm/yUuv7+6+38/7/vh837sQ60KOj48j9IMRdrldoVEIhUKFoHpDAQDA8DKNOA2t0ThiB9WfLc9dGrvIhoeHcFmjkaaxQsAqpwKGg0jRiNUOf7PcToGVy99dgciAJibG2exchGmjI5japmH6gQr5AHlAP6sA8XrrnQUiqADUncQNAWqRAD0NBIZAaABBI5n98IVl339mJxVj/iozrs/gco2DqvmC4UCylBORzVeZrrzRzkt3791GTiG5DRWQG5gUAUm+fLHlyAu4GTkAhcgJIXimmUO/WPSKbs1Vae7tm4+e+XR/IQFAawTGlO8NuuRIEh4RQFAZN29dI0PTnsplcH4CvdBvLiSSZO+rnEMDStWsIkdEaAAEq/AC0q1AP+zAHrfb4pkUqkZOVlSBumo8UyrtsUbjbzN82nkrdLxaOhbYiUZ1vAfaMGwwHF0M5Su7X5+ecijI7xaZ/IycmOT2wB6CLnovBvvgIBGmZaxYrhyRjDbH0z03ICcNF+xyZrdzJg5mlWVMCU9+t8R6Idxu3AoTb3qaH5/wFQQWFECYwgjPgi7cvAP7wAHPRLyanizD54Z64hnYhX3gAJiwG5B6/cjx/7I+yXol3H54wOuBSvmH4z+45rT5RpVBrxsoY2N+RuxNJN65YCWz8CYoIDw57gwpvYNyF9fqnO19JT08wSCOyHTeaW2ZnYtao50AoMo7bnNqUg/4sWRuJ8/OSuCZSrtGh+77rbhvNctOG+KB1LXFewcunbzerCKhtwIwBcRTvODFlM+fbVj9Z0zq0o36/5jLIUCIBW/xsnXMeeyZC4PYxRPh1Ci5ND+uAfFZjbK455hXe1jQDRdUA4fImTQ2Tt1KJOrsY1WfRTkLwrKblhN4BSFQS08uTW9l0RbPqBzVzit867Hi2HZSqLIUgtiTxykHkKVHJhMdvXb4x84RcItOrOy235F1tJOlhybAbFOIDJVnTLpRxi5ebLCwYpHcnVbSxnqm49MC94rZwjP8gLUIkhPhCtKPUC2b6xnfhivCw8l0UT7YtT0dwICuT5GHJq1tgBenlEr7LPcpb5exHzt7nQ4CnZvg1lFtxLWv9OTc1Fcnyr47a/flV4i++z5zll+u/gkwACswGWZAoYg4AAAAAElFTkSuQmCC) no-repeat left center;
+}
+
+a.youtube {
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA1lJREFUeNrMWL+PEkEUHgjJYWOwMNHEArTiKrA5TxMjGgujxZmrTCzA2Ct/wQUTayyMlZErjFddpNBYGIWYCNgIFVcpW9wFE4sjNmKF74M3yzA7+4sjF14yYY/bnfft9773zQwRMUeMRqMMfWAkDf+2aHQikUgn7LyREACQeIvGBo3EcPhP/Or/dtx35uxpEY+v4HJAo0qjRMCshYBhEBUa1waHf0Sz0RG93r4RiAoolTon1i9nROLUSXxVp1HwAxXxAfKYPsoA8Xb34xhE2ACou5s3JagiAXoWCgyBSAAEjXzt8zdR+9QSR43cjUsid30Nl9sMauALhoHUSBOZndfv5mLDi6V79+9AUxB3TgcUNTxTBpBXL3cXCgSB+TAv5mfm3ZmRGqkcAciTp4/sa7d5wFDh4aZDQ1Gta8rQyKIZMTGEPMjHeR1lqqBrFiHWIIE8yMe2MS0To+vptD6YUMlvc+AKNHtxlUZ6fJ2kEsiAF8EcZbS/79HomsqVggfF+PstoNTLc0jfIZFM0vzanpncbltqWfYRh/nNlufAUS7kpWfh7AVZpg04q4PKSV3tWL+SNYrRBCRocF4sMSLGi17CJFqg3uv+EOnVC5NyZNOOUmW4PAj1Xq9u0tlBfuAAMxm3RQ/RUhgDA7JsCCyI6t+tRuiFWtXVGEzSa9EDckt5u6zChMqCSXNhAAFHNFgbTrUDIUthYlV209c8EQ1qUuwJNggAkqBAM/RyLGD0N4dOeAVm/+gaWz5slwUGg4QqO6peVFtQ9Xfr9lViMTtuf2whVLGbAqZn6ebkxQ42SjMbXq2EfQIj50O3AZAqctWBNXO0wEwHDwUBBF3o5dDN8sP7L6424ebSvGfuxLCLJ8MZEJUJrxaXQsXbSeDSFPV7Xjx/Y++D4ydWxPDvxMf6hvlTk7VsABxybapSh+SbjbbvTk1lsOlhckju93KKPVRVAZdAYUpZcc372LUZBkz1D7sN5dKVbDB8hKjr4tRrq24PTPoJG5yvLo8wamsXgBIt6EFnoBIFPS0wKwWHzzC6IsxML5e+QFo+h7gg5WHTLKoHO9NRpUL057GLlwnxcPL8FKD1c3/uRRHlxg6S2nmbgBSW9ty03CfKpTtrL+WvEEv3+8xx/nL1X4ABAH5eDkhUFH1oAAAAAElFTkSuQmCC) no-repeat left center;
+}
+
+/*form styles*/
+fieldset {
+	border: none;
+	background: rgb(237, 228, 214);
+	position: relative;
+	min-width: 250px;
+	padding:1em;
+	margin: 1em 0;
+	-webkit-border-radius: 0 .5em .5em 0;
+	-moz-border-radius: 0 .5em .5em 0;
+	border-radius: 0 .5em .5em 0;
+}
+
+fieldset:before {
+	content:attr(title);
+	display: block;
+	font: 1.2em Cantarell, Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	border-bottom: 1px solid rgb(76, 67, 65);
+	width: 100%;
+}
+
+legend {
+	position: absolute;
+	top:0;
+	left: -2000em;
+}
+
+fieldset p {
+	font: .8em Cantarell, Arial, Helvetica, sans-serif;
+	margin: 1em 0 0;
+	font-style: italic;
+}
+ 
+
+label {
+	display:block;
+	font-size: 1em;
+	margin: .8em 0 0;
+}
+
+input[type="submit"] {
+	display:block;
+	margin: 1em 0;
+}
+
+.inline {
+	display: inline;
+}
+
+
+       section #content{
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-color: aquamarine;
+           background-color: red;
+            }
+
+
+
+            article.cakes{
+            width: 100%;
+            height: 650px;
+            position: relative;
+            background: linear-gradient(rgba(245,231,190,.8), rgba(245,231,190,.8)), no-repeat 0 0;
+            margin: 0;
+        }
+            .art_of_cakes{
+                padding: 20px;
+                position: absolute;
+                margin: 80px;
+                background-color: none;
+                height: 300px;
+                width: 300px;
+                text-align: center;
+            
+            }
+        .art_of_cakes .art_of_cakes_content_top_left h2{
+
+                color: black;
+                font-family: Arial Georgia sans-serif;
+                font-size: 2.5em;
+            padding-bottom: 2px;
+            letter-spacing: 2px;
+        }
+
+            .art_of_cakes .art_of_cakes_content_top_left p{
+
+                    font-size: 12px;
+                    color: black;
+                    font-family: Arial Georgia sans-serif;
+                    padding-top: 20px;
+                    text-align: justify;
+
+            }
+        .art_of_cakes .art_of_cakes_content_top_left h3{
+
+                color: rosybrown;
+                font-family: Arial Georgia sans-serif;
+                font-size: 1em;
+            text-transform: uppercase;
+            
+        }
+
+        .art_of_cakes .art_of_cakes_content_bottom_left{
+            
+            width: 300px;
+            height:200px;
+            margin: 0 auto;
+            font-size: 12px;
+            }
+
+                .art_of_cakes .art_of_cakes_content_bottom_left h2{
+            
+                        font-weight:bold;
+                        padding: 15px;
+                       font-size: 1.5em;
+                        }
+
+                .benito_gaspare{
+                    width: 90%;
+                    margin: 0 auto;
+                    position: relative;
+                    text-align: center;
+                    height: 60px;
+                     display: flex;
+                    justify-content: center;
+                    
+                }
+                    div.benito, div.gaspare{
+                        width: 60px;
+                        height: 30px;
+                        padding: 10px 10px 5px 10px;
+                        border-bottom: 1px solid black;
+                        border-top: 1px solid black;
+                        vertical-align: middle;
+                        margin: 0px 10px;
+                        font-size: 1.6em;
+                        font-family: 'Nanum Myeongjo', serif;
+                    }
+                            
+                .text_botom_left span.rquote{
+                    display: inline-block;
+                    transform: rotateY(180deg);
+                }
+
+                .benito_gaspare div{
+                    display: inline-block;
+                    float: left;
+                                }
+                .text_botom_left{
+                    width: 90%;
+                    height: auto;
+                    margin-left: 10px;
+                    position: relative;
+                    padding-top:30px;
+                    font-size: 1.7em;
+                    color: firebrick;
+                    
+                }
+            .benito_gaspare .face_img img{
+
+                border: 2px solid white;
+                border-radius:50%;
+                margin: 0 auto;
+                object-fit: cover;
+               width: 50px;
+               height: 50px;
+                box-shadow: 2px black;
+                filter: saturate(100%);
+            }
+
+            .img_gallery_cakes{
+
+                width: 30%;
+                height: auto;
+                float: right;
+                position: relative;
+                top: 60px;
+                right: 60px;
+
+            }
+      
+      
+      .cake_indgredients {
+          
+           width: 100%;
+          position: relative;
+           -webkit-column-count:2;
+           -webkit-column-gap:2em;
+           column-count:2;
+           column-gap:0.5em;
+          
+      }
+      
+      .cake_indgredients li{
+          position: relative;
+          
+      }
+       .cake_indgredients a:hover:after{
+          
+           content: attr(title);
+           display: block;
+           width: 100%;
+           position: absolute;
+           left: 0;
+           bottom: 0;
+           line-height: 2em;
+           color: white;
+           text-align: center;
+           background: rgba(25,25,25,.8);
+           z-index: 999;
+      }
+      
+                     .cake_indgredients ul li{
+                         display: block;
+                         border: none;
+                         padding: 1px;
+                         width: 100%;
+                         float:none;
+                         
+
+                     }
+      .cake_indgredients ul li img{
+          
+          width: 100%;
+          height: 100%;
+      }
+
+                .taste{
+                    display: none;
+
+                }
+
+                .taste p{
+
+                    font-size: 18px;
+                    bottom: 72px;
+                    z-index: 1;
+                    color: beige;
+                    position: relative;
+
+                }
+                .taste img{
+                    bottom: 70px;
+                    color: red;
+                    background-color: rebeccapurple;
+                    mix-blend-mode: multiply;
+
+
+
+                }
+
+            article.tasty_pancakes{
+
+                width: auto;
+                height: 800px;
+                margin: 0 auto;
+                position: relative;
+                background: url(../images/Ebene-11.png) no-repeat 0 0;
+                background-size: cover;
+                padding-left: 50px;
+
+            }
+                    .tasty_pancakes_content{
+
+                           
+                                    margin: 0 auto;
+                                    width: 90%;
+                                    padding: 5px 0px;
+                                   position: absolute;
+                                    
+
+                    }
+
+                            .tasty_pancakes_content .content_right{
+
+                                    width: 95%;
+                                    height:80%;
+                                    top: 5px;
+                                    position: absolute;
+                                    text-align: top;
+                                    padding: 0px 10px;
+                            }
+      
+      
+                                  .content_right .inline{
+                                      float: right;
+                                      margin: 0 0 1em 2em;
+                                      width: 35%; 
+                                  }
+                                                    .gallery_ingredients_bottom {
+
+                                                        height: auto;
+                                                        text-align: center;
+                                                        vertical-align: middle;
+                                                    }
+
+
+
+                                .content_right h2{
+
+                                    color: black;
+                                    font-family: Arial Georgia sans-serif;
+                                    font-size: 2em;
+                                    padding-bottom: 5px;
+                                    text-align: center;
+                                    padding: 0 0 5px 15px;
+                                    letter-spacing: 1px;
+                                    font-weight: 600;
+
+                                }
+                                    .content_right h3{
+
+                                    color: rosybrown;
+                                    font-family: Arial Georgia sans-serif;
+                                    font-size: 10px;
+                                    text-transform: uppercase;
+                                    text-align: center;
+                                    padding: 0 0 15px 15px;
+                                        letter-spacing: 1px;
+                                        font-weight: 600;
+                            
+
+                                }
+                                    .content_right p{
+                                        font-family: Arial Georgia sans-serif;
+                                        font-size: 20px;
+                                        letter-spacing: 4px;
+                                        text-align: justify;
+                                        
+                                        
+                                    }
+                                   
+                        
+                                            
+                                        .ready{
+
+                                           display: none;
+                                            
+                                        }
+                                            .ready h3{
+                                                        font-size: 0.7em;
+                                                        font-family:Arial Georgia sans-serif;
+                                                        color: saddlebrown;
+                                                    letter-spacing: 2px;
+
+                                            }
+                                                .ready .forthy_min{
+                                                        font-size: 1.4em;
+                                                        font-family:Arial Georgia sans-serif;
+                                                        color: grey;
+                                                        padding: 5px 0;
+                                                        font-weight: 700;
+                                                        letter-spacing:5px;
+                                                
+
+                                            }
+                                
+
+
+                                    article.breakfast{
+                                        
+                                        width: auto;
+                                        height: 650px;
+                                        background: url(../Images/breakfast-small.png)  no-repeat 0 0 ;
+                                        background-size: cover;
+                                        margin:0 auto;
+                                        position: relative;
+                                        
+                                
+
+                                      }
+
+                                                div.time_table{
+
+                                                    margin: 200px 20px 150px 50px;
+                                                    color: white;
+                                                    background-color: transparent;
+                                                    width: 300px;
+                                                    left: 60px;
+                                                    position: absolute;
+                                                    text-align: center;
+                                                }
+
+                                                    
+
+                                                            .full_b, .toast, .muffins{
+                                                                padding: 10px 0px;
+                                                            }
+                                                                .time_table .full_b p, .time_table .toast p, .time_table .muffins p{
+                                                                    padding: 10px 0px;
+                                                                }
+                    
+                                                            div.time_table h2{
+
+                                                                color: white;
+                                                                font-family: Arial Georgia sans-serif;
+                                                                font-size: 2.5em;
+                                                                padding-bottom: 5px;
+                                                                 padding: 0 0 5px 15px;
+                                                                letter-spacing: 2px;
+                                                                font-weight: 600;
+
+                                                            } 
+                                                                div.time_table h3{
+
+                                                                color: white;
+                                                                font-family: Arial Georgia sans-serif;
+                                                                font-size: 18px;
+                                                                padding-bottom: 5px;
+                                                                 padding: 0 0 5px 15px;
+
+                                                            } 
+
+                                                                div.time_table p{
+
+                                                                color: rosybrown;
+                                                                font-family: Arial Georgia sans-serif;
+                                                                font-size: 14px;
+                                                                text-transform: uppercase;
+                                                                padding-bottom: 5px;
+                                                                 padding: 0 0 5px 15px;
+
+                                                            }
+                                                                    div.time_table h4{
+
+                                                                        color: lightgoldenrodyellow;
+                                                                        font-size: 12px;
+                                                                        font-family: Arial Georgia sans-serif;
+                                                                    }
+
+
+
+                                                                .menu{
+                                                                    width: 300px;
+                                                                    height: auto;
+                                                                    background-color: antiquewhite;
+                                                                    margin: 10px;
+                                                                    top: 25%;
+                                                                    position: absolute;
+                                                                    right: 30px;
+                                                        
+                                                                    
+                                                                }
+
+                                                                     .inner-outline {
+                                                                            outline: 1px dashed grey;
+                                                                            outline-offset: -10px;
+                                                                        }
+                                                                       
+
+                                                                    .history{
+
+                                                                        width: auto;
+                                                                        height:20px;
+                                                                        margin: 10px 10px;
+                                                                        padding: 10px;
+                                                                    }
+
+                                                                            .history p{
+
+                                                                        font-size: 18px;
+                                                                        font-family: Arial Georgia sans-serif;
+                                                                    }
+                                                                        .history img{
+
+                                                                            width: 220px;
+                                                                            height: 20px;
+                                                                            margin-left: 25px;
+                                                                
+                                                                        }
+                                                                           
+                                                                        .text_bottom{
+
+                                                                            padding: 10px 0px; 
+                                                                            width: auto;
+                                                                        }
+
+                                                                        .text_bottom h2{
+
+                                                                                font-size: 1.5em;
+                                                                                font-family: Arial Georgia sans-serif;
+                                                                                font-weight: 600;
+                                                                                text-align: center;
+                                                                                padding: 10px 0px;
+                                                                    }
+
+                                                                            .text_bottom h3{
+
+                                                                                padding: 20px;
+                                                                                line-height: 20px;
+                                                                                text-align: center;
+                                                                                font-size: 12px;
+                                                                            }
+
+                                                                        .history .left_text{
+
+                                                                        float: left; 
+                                                                        margin-left: 40px;
+                                                                    }
+                                                                        .history .right_text{
+
+                                                                        float: right; 
+                                                                        margin-right: 20px;
+                                                                    }
+
+                                                                                .text_bottom .button   {
+
+                                                                                  text-align: center;
+                                                                                    color: blueviolet;
+                                                                                    margin-left: 90px;
+                                                                                    padding: 5px 40px;
+                                                                                    font-weight: 700;
+
+                                                                                }
+                                                                                article .plant {
+                                                                            
+                                                                                   display: none;
+                                                                                    
+                                                                                    
+                            
+                                                
+                                                                                }
+
+                                                                                  article .plant img{
+                                                                                      width: auto;
+                                                                                      height: auto;                                                            
+                                                                                      position: absolute;
+                                                                                      opacity: 0.3;
+                                                                                    
+                                                                            
+                                                                            
+                                                                                }
+
+                                                                                    article.jibarito_sandwich{
+                                                                                        
+                                                                                        width: auto;
+                                                                                        height: auto;
+                                                                                        position: relative;
+                                                                                        background: linear-gradient(rgba(245,231,190,.8), rgba(245,231,190,.8)), url(../Images/Jubarito_back.png) no-repeat 350px 0;
+                                                                                        
+                                                                        
+                                                                                        }
+
+                                                                                            article .jibarito_title{
+
+                                                                                                width: auto;
+                                                                                                height: 130px;
+                                                                                                margin: 0 auto;
+                                                                                                position: relative;
+                                                                                                text-align: center;
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                            
+                                                                                            }
+
+                                                                                                    .jibarito_title h2{
+                                                                                                        text-align: center;
+                                                                                                        font-size: 2.5em;
+                                                                                                        position: absolute;
+                                                                                                        padding: 10px;
+                                                                                                        width: 100%;
+                                                                                                        line-height: 20px;
+                                                                                                        margin-top: 40px;
+                                                                                                        letter-spacing: 1px;
+                                                                                                        font-weight: 600;
+                                                                                                        
+                                                                                                    }
+                                                                                                        .jibarito_title h3{
+                                                                                                        text-align: center;
+                                                                                                        font-size: 14px;
+                                                                                                        position: absolute;
+                                                                                                        padding: 10px;
+                                                                                                        width: 100%;
+                                                                                                            letter-spacing: 1px;
+                                                                                                           line-height: 20px;
+                                                                                                            margin-top: 60px;
+                                                                                                            color: brown;
+                                                                                                            text-transform: uppercase;
+                                                                                                        
+                                                                                                    }
+
+                                                                                            .jibarito_left{
+
+                                                                                                width: 300px;
+                                                                                                height: auto;
+                                                                                                margin-left:  50px;
+                                                                                                text-align: center;
+                                                                                                padding: 20px 20px 80px 20px;
+                                                                                                
+                                                                                            }
+                                                                                            .jibarito_right{
+
+                                                                                                width: 450px;
+                                                                                                height: autp;
+                                                                                                margin: 20px ;
+                                                                                                padding: 20px ;
+                                                                                                position: absolute;
+                                                                                                text-align: center;
+                                                                                                bottom: 150px;
+                                                                                                right: 20px;
+                                                                                                
+                                                                                            }
+
+                                                                                                    
+                                                                                                .jibarito_left img{
+
+                                                                                                width: 50px;
+                                                                                                height: 50px;
+                                                                                                border-radius: 50%;
+                                                                                            }
+
+                                                                                            .jibarito_left h2{
+
+                                                                                                    color: saddlebrown;
+                                                                                                    text-align: center;
+                                                                                                    font-size: 1.5em;
+                                                                                                    margin: 10px;
+                                                                                                    }
+                                                                                                    
+                                                                                                    .jibarito_left .zero_fats{
+
+                                                                                                    margin-top: 10px;
+                                                                                                            }
+                                                                                                    
+                                                                                                    .jibarito_left .cheese{
+
+                                                                                                    margin: 10px 0px;
+                                                                                                        
+                                                                                                    }
+                                                                                                    
+
+                                                                                        .jibarito_s{
+                                                                                         width: 400px;
+                                                                                         height: 300px;
+                                                                                        
+                                                                                                
+                                                                                                }
+                                                                                        .jibarito_s img{
+                                                                                            margin-right: 3em;
+                                                                                            border: 3px solid white;
+                                                                                            max-height: 100%;
+                                                                                            max-width: 100%;
+                                                                                            box-shadow: 3px 3px 6px #888888;
+                                                                                        }
+
+                                                                                                div.prep_info{
+
+                                                                                                    width: 100px;
+                                                                                                    height: auto;
+                                                                                                    text-align: center;
+                                                                                                    padding: 10px 0px 0px 0px;
+                                                                                                    position: absolute;
+                                                                                                    right: 63px;
+                                                                                                    bottom:30px;
+                                                                                                }
+
+                                                                                                        div.prep_info p:first-of-type{
+                                                                                                            
+                                                                                                            font-size: 28px;
+                                                                                                            font-weight: 600;
+                                                                                                            font-family: Arial Georgia sans-serif;
+
+
+                                                                                                        }
+                                                                                                    .prep_info h3{
+
+                                                                                                        color: saddlebrown;
+                                                                                                        padding-bottom: 5px;
+                                                                                                        font-size: 10px;
+                                                                                                        letter-spacing: 1px;
+                                                                                                    }
+
+                                                                                                    .prep, .cook{
+                                                                                                        
+                                                                                                        padding: 15px;
+                                                                                                    
+                                                                                                        width: auto;
+                                                                                                        height: 80px;
+                                                                                                        background: rgba(255,255,255,0.5);
+                                                                                                        margin-bottom: 1px;
+                                                                                                        font-family: Arial Georgia sans-serif;
+                                                                                                        
+                                                                                                                    }
+                                                                                                    
+
+                                                                                                    .ready_50{
+                                                                                                       padding: 15px;
+                                                                                                        background: rgba(255,255,255,0.8);
+                                                                                                        width: auto;
+                                                                                                        height: 80px;
+                                                                                                        font-family: Arial Georgia sans-serif;
+                                                                                                        
+                                                                                                        
+                                                                                                                    }
+                                                                                                                    div.ready_50 p:first-of-type{
+                                                                                                                        
+                                                                                                                        font-size: 3.2em;
+                                                                                                                        color: burlywood;
+                                                                                                                        letter-spacing: 2px;
+                                                                                                                        
+                                                                                                                                    }
+
+                                                                                                                #recipe a{
+                                                                                                                    
+                                                                                                                    height: 2em;
+                                                                                                                    width: 4em;
+                                                                                                                    padding: 10px;
+                                                                                                                    letter-spacing: 1px;
+                                                                                                                    border: 1px dashed burlywood;
+                                                                                                                    border-radius:.5em;
+                                                                                                                    color: beige;
+                                                                                                                    margin: 0 auto;
+                                                                                                                    background: rgb(95,150,120);
+                                                                                                                }
+
+                                                                                                          
+      
+                                                                                                         #pageFooter{
+
+                                                                                                                width: 100%;
+                                                                                                                height: 200px;
+                                                                                                                background-color: burlywood;
+                                                                                                                bottom: 0px;
+                                                                                                                position: relative;
+                                                                                                                padding: 20px 0px 0px 10px;
+                                                                                                                
+                                                                                                            }
+             
+           
+            .foot_main{
+    
+                    width: 100%;
+                    height: 80%;
+                    position: absolute;
+                    display: block;
+                  
+                    }
+            
+           .foot_logo{
+    
+                width: 80%;
+                height: auto;
+                font-size: 2.5em;
+                position: absolute;
+                display: block;
+                left: 110px;
+                right: 50px;
+                top: 25%;
+               text-align: center;
+                
+            }
+
+.foot_logo a {
+	text-decoration: none;
+	color: bisque;
+    border-bottom: none;
+    font-family: 'Nanum Myeongjo', serif;
+    letter-spacing: 1px;
+    align-items: center;
+    
+	
+}
+
+.foot_logo a:hover {
+	color:firebrick;
+}
+
+.foot_left{
+     width: auto;
+    height: 100px;
+    list-style-type: none;
+    display: block;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-color: burlywood;
+    position: absolute;
+    left: 5px;
+    
+   
+    
+}
+      
+        .foot_left li{
+        padding:  10px;
+        height: 25%;
+        float: none;
+        font-size: 0.8em;
+        letter-spacing: 2px;
+        font-weight: 600;
+            width: auto;
+    
+            }
+            .foot_left li a{
+            
+               text-decoration-line: none;
+                border-bottom: none;
+                cursor: pointer;
+                color: saddlebrown;
+    
+            }
+           
+           .foot_left li a:hover{
+            color:firebrick;
+    
+            }
+           
+            .foot_right{
+                 width: auto;
+                height: 100px;
+                list-style-type: none;
+                display: block;
+                position: absolute;
+                right: 5px;
+                box-shadow: 0px 10px 15px burlywood inset;
+                border-top: 1px solid black;
+                border-bottom: 1px solid black;
+                border-color: burlywood;
+               
+    
+}
+            .foot_right li{
+                 padding: 10px ;
+                height: 25%;
+                float: none;
+                font-size: 0.8em;
+                letter-spacing: 2px;
+                font-weight: 600;
+                width: auto;
+                
+}
+            .foot_right li a{
+            
+               text-decoration-line: none;
+                border-bottom: none;
+                cursor: pointer;
+                color: saddlebrown;
+            }
+           
+           .foot_right li a:hover{
+            color:firebrick;
+    
+            }
+
+     
+
+}
+           
+          
+            
